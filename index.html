@@ -1,0 +1,1879 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عالم السكري: رحلة وعي للأطفال</title>
+
+<style>
+
+:root{--blue:#1e63e9;--blue2:#0f47b8;--sky:#dff0ff;--line:#cfe3ff;--orange:#ff6a1a;--yellow:#ffd23f;--ink:#12306e;--mint:#19b58a;--coral:#ff5a4f;--page:#f2f9ff;--purple:#7b3fd1}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
+html{scroll-behavior:smooth}
+
+body,#app-root{margin:0;color:var(--ink);font-family:"Segoe UI",Tahoma,"Noto Sans Arabic",Arial,sans-serif;line-height:1.8;background-color:var(--page);
+
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cpath d='M40 30l4 9 10 1-8 7 3 10-9-6-9 6 3-10-8-7 10-1z' fill='%23ffd23f'/%3E%3Ccircle cx='190' cy='60' r='3' fill='%238fc3ff'/%3E%3Cpath d='M230 200l3 7 8 1-6 5 2 8-7-5-7 5 2-8-6-5 8-1z' fill='%23ffd23f' opacity='.7'/%3E%3Ccircle cx='90' cy='220' r='2.5' fill='%238fc3ff'/%3E%3Ccircle cx='150' cy='140' r='2' fill='%238fc3ff'/%3E%3C/svg%3E")}
+
+button{font-family:inherit;cursor:pointer;border:0}
+
+button:focus-visible,a:focus-visible,textarea:focus-visible{outline:4px solid var(--orange);outline-offset:2px}
+
+.wrap{max-width:1180px;margin:auto;padding:0 18px;position:relative}
+
+/* ===== شريط التنقل ===== */
+
+.navwrap{position:sticky;top:0;z-index:60;background:var(--blue);padding:8px 12px;box-shadow:0 4px 14px rgba(15,71,184,.3)}
+
+.navbar{max-width:900px;margin:auto;background:#5aa9ff;border-radius:999px;padding:5px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+
+.navbar button{background:none;color:#fff;padding:7px 18px;border-radius:999px;font-size:16px;font-weight:800}
+
+.navbar button:hover{background:rgba(255,255,255,.25)}
+
+.navbar button.on{background:var(--orange);box-shadow:0 3px 0 #c24c07}
+
+.navbar .ck{margin-inline-start:4px;color:#d9ffe9}
+
+/* ===== السماء والشعار ===== */
+
+.sky{position:relative;overflow:hidden;background:linear-gradient(180deg,#1e63e9 0%,#3b8bff 55%,#a8d3ff 100%);padding:18px 0 78px;text-align:center}
+
+.sky.compact{padding:8px 0 34px}
+
+.sky .stars{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 40px 40px,#fff,transparent),radial-gradient(1.5px 1.5px at 140px 90px,#ffe9a0,transparent),radial-gradient(2px 2px at 260px 30px,#fff,transparent),radial-gradient(1.5px 1.5px at 330px 110px,#fff,transparent),radial-gradient(2px 2px at 90px 120px,#ffe9a0,transparent);background-size:360px 150px}
+
+.cloudrow{position:absolute;left:0;right:0;bottom:0;height:62px;background:radial-gradient(circle at 28px 66px,var(--page) 34px,transparent 35px),radial-gradient(circle at 78px 72px,var(--page) 42px,transparent 43px),radial-gradient(circle at 128px 68px,var(--page) 36px,transparent 37px);background-size:150px 70px;background-repeat:repeat-x;background-position:bottom}
+
+.cloudrow::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:var(--page)}
+
+.logo{position:relative;background:none;display:inline-flex;flex-direction:column;align-items:center;line-height:1.05;padding:0}
+
+.logo .l1,.logo .l2{font-weight:900;color:var(--yellow);-webkit-text-stroke:8px #0b3a9e;paint-order:stroke fill;text-shadow:0 6px 0 rgba(8,30,100,.35)}
+
+.logo .l1{font-size:clamp(34px,7vw,64px)}
+
+.logo .l2{font-size:clamp(26px,5.4vw,48px);color:#fff}
+
+.sky.compact .logo{flex-direction:row;gap:10px}.sky.compact .logo .l1{font-size:clamp(22px,4.6vw,32px);-webkit-text-stroke:6px #0b3a9e}.sky.compact .logo .l2{font-size:clamp(18px,3.6vw,26px);-webkit-text-stroke:5px #0b3a9e}
+
+.sky.compact .cloudrow{height:34px}
+
+.sky .rocket{position:absolute;top:14px;font-size:40px;opacity:.95}
+
+.sky.compact .rocket,.sky.compact .stars{display:none}
+
+.planet{position:absolute;pointer-events:none;z-index:0}
+
+.p1{width:110px;top:6px;right:3%}.p2{width:80px;top:20px;left:4%}.p3{width:70px;top:70px;right:16%}
+
+/* ===== عام ===== */
+
+.view{display:none}.view.on{display:block;animation:fade .3s ease}
+
+@keyframes fade{from{opacity:.2}to{opacity:1}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 26px;border-radius:14px;font-size:18px;font-weight:800;background:var(--orange);color:#fff;box-shadow:0 5px 0 #c24c07;transition:transform .12s}
+
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #c24c07}
+
+.btn.line{background:#fff;color:var(--blue2);border:3px solid var(--blue);box-shadow:none}
+
+.btn.blue{background:var(--blue);box-shadow:0 5px 0 var(--blue2)}
+
+.btn.small{padding:7px 16px;font-size:15px}
+
+.btn:disabled{opacity:.4;cursor:default;transform:none}
+
+.tag{display:inline-block;background:#fff;color:var(--blue2);border:2px solid var(--blue);border-radius:999px;padding:3px 16px;font-weight:800;font-size:14px}
+
+.h2{font-size:clamp(22px,4.4vw,30px);margin:22px 0 10px;color:var(--ink);font-weight:900}
+
+.muted{color:#5c76b4;font-size:15px}
+
+/* ===== الصفحة الرئيسية ===== */
+
+.banner{position:relative;border-radius:26px;overflow:hidden;height:clamp(250px,42vw,450px);border:4px solid #fff;box-shadow:0 12px 26px rgba(15,71,184,.3);margin-top:-34px;background:#9fd2ff;z-index:2}
+
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .6s;pointer-events:none}
+
+.slide.on{opacity:1;pointer-events:auto}
+
+.slide .art{position:absolute;inset:0}.slide .illus{width:100%;height:100%;display:block}
+
+.slide .cap{position:absolute;inset-inline:0;bottom:0;padding:70px 24px 40px;background:linear-gradient(transparent,rgba(8,30,90,.9));color:#fff}
+
+.slide .cap h2{margin:0;font-size:clamp(22px,4.8vw,40px);text-shadow:0 3px 0 rgba(0,0,0,.3)}
+
+.slide .cap p{margin:2px 0 10px;font-size:clamp(15px,2.8vw,19px);opacity:.95}
+
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:var(--blue);color:#fff;font-size:22px;font-weight:900;box-shadow:0 4px 10px rgba(0,0,0,.35);z-index:3;border:3px solid #fff}
+
+.arrow.nx{left:12px}.arrow.pv{right:12px}
+
+.dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+
+.dots button{width:13px;height:13px;border-radius:50%;background:rgba(255,255,255,.6);padding:0}.dots button.on{background:var(--orange)}
+
+.homegrid{display:grid;grid-template-columns:290px 1fr;gap:22px;margin-top:10px}
+
+.side>*{margin-bottom:16px}
+
+.live{width:100%;background:var(--orange);color:#fff;font-size:20px;font-weight:900;border-radius:14px;padding:14px;box-shadow:0 5px 0 #c24c07}
+
+.sidebox{background:#fff;border:3px solid var(--line);border-radius:20px;padding:16px}
+
+.sidebox h3{margin:0 0 8px;font-size:19px}
+
+.route{list-style:none;margin:0;padding:0}
+
+.route li{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-weight:700;cursor:pointer}
+
+.route li:last-child{border:0}
+
+.route .n{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:900;flex:none}
+
+.route li.done .n{background:var(--mint)}
+
+.route small{display:block;color:#6a84bd;font-weight:500;font-size:13px}
+
+.credit b{display:block;font-size:18px}.credit small{color:#6a84bd}
+
+.nowrow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+
+.now{background:#fff;border-radius:16px;box-shadow:0 5px 14px rgba(30,99,233,.14);padding:10px;display:flex;align-items:center;gap:10px;text-align:right;color:var(--ink);position:relative}
+
+.now .th{width:92px;height:62px;border-radius:10px;overflow:hidden;flex:none;background:#9fd2ff}
+
+.now .th .illus{width:100%;height:100%;display:block}
+
+.now b{display:block;font-size:16px;line-height:1.3}
+
+.now span.t{color:#6a84bd;font-size:14px}
+
+.now .dot{position:absolute;top:8px;left:8px;width:20px;height:20px;border-radius:50%;background:var(--orange);color:#fff;font-size:12px;display:grid;place-items:center;font-weight:900}
+
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+.fcard{border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 8px 18px rgba(30,99,233,.18);text-align:right;display:flex;flex-direction:column;color:#fff;position:relative}
+
+.fcard .pic{height:140px;overflow:hidden;background:#9fd2ff}
+
+.fcard .pic .illus{width:100%;height:100%;display:block}
+
+.fcard .txt{padding:14px 16px 18px;flex:1;display:flex;flex-direction:column;gap:4px}
+
+.fcard h3{margin:0;font-size:21px}.fcard p{margin:0 0 8px;font-size:15px;opacity:.95}
+
+.fcard .btn{align-self:flex-start;margin-top:auto;background:#fff;color:var(--ink);box-shadow:0 4px 0 rgba(0,0,0,.25);padding:8px 18px;font-size:16px}
+
+.fcard.c1 .txt{background:linear-gradient(180deg,#7b3fd1,#5a2aa8)}
+
+.fcard.c2 .txt{background:linear-gradient(180deg,#ff8a2a,#ee5f0d)}
+
+.fcard.c3 .txt{background:linear-gradient(180deg,#2f84ff,#1448c0)}
+
+.fcard .done{position:absolute;top:10px;right:10px;background:var(--mint);color:#fff;border-radius:999px;padding:1px 12px;font-weight:800;font-size:13px;display:none}
+
+.fcard.finished .done{display:block}
+
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+.fact{background:#fff;border:3px solid var(--line);border-radius:20px;padding:16px}
+
+.fact h3{margin:0 0 4px;font-size:19px;color:var(--blue2)}.fact p{margin:0;font-size:16px}
+
+.about{background:#fff;border:3px solid var(--line);border-radius:22px;padding:20px;margin-top:20px}
+
+.about h2{margin:0 0 6px;color:var(--blue2)}
+
+.credits{display:flex;gap:36px;flex-wrap:wrap;margin-top:10px}
+
+.credits div{display:flex;flex-direction:column}.credits small{color:#6a84bd}.credits strong{font-size:19px}
+
+footer.foot{margin-top:36px;background:var(--blue);color:#fff;padding:20px 0 26px}
+
+.foot-in{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+
+.foot .credits strong{font-size:17px;color:#fff}.foot .credits small{color:#cfe3ff}
+
+/* ===== صفحات الأنشطة ===== */
+
+.page{padding-block:22px 50px}
+
+.crumb{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;font-size:14px;color:#6a84bd}.crumb b{color:var(--orange)}
+
+.brief{background:#fff;border:3px solid var(--line);border-radius:26px;padding:clamp(18px,4vw,30px);box-shadow:0 10px 22px rgba(30,99,233,.12)}
+
+.brief h2{margin:6px 0 4px;font-size:clamp(22px,5vw,32px);color:var(--blue2)}
+
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+
+.bbox{background:#f3f9ff;border-radius:16px;padding:12px 16px;border:2px solid var(--line)}
+
+.bbox b{display:block;color:var(--blue2);margin-bottom:4px}
+
+.bbox ul{margin:0;padding-inline-start:18px}.bbox li,.bbox p{font-size:16px;margin:0}
+
+.bbox.wide{grid-column:span 3;background:#fff7d6;border-color:var(--yellow)}
+
+.panel{background:#fff;border:3px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 10px 22px rgba(30,99,233,.12)}
+
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 18px;background:linear-gradient(90deg,#1e63e9,#3b8bff);color:#fff;flex-wrap:wrap}
+
+.pbar{flex:1;min-width:140px;height:12px;border-radius:99px;background:rgba(0,0,40,.35);overflow:hidden}
+
+.pbar i{display:block;height:100%;background:var(--yellow);width:0;transition:width .35s}
+
+.illus{display:block;width:100%;height:auto;background:#cfe9ff}
+
+.sbody{padding:clamp(16px,4vw,28px)}
+
+.sbody h3{margin:0 0 6px;font-size:clamp(22px,4.6vw,30px);color:var(--blue2)}
+
+.txt{font-size:clamp(18px,3.8vw,22px);line-height:2;margin:6px 0 12px}
+
+.dlg{display:flex;flex-direction:column;gap:8px;margin:8px 0 12px}
+
+.bub{background:#f3f9ff;border-radius:16px;padding:8px 14px;border-right:7px solid var(--blue);font-size:clamp(17px,3.5vw,20px)}
+
+.bub b{margin-inline-end:6px}
+
+.factbox{background:#fff7d6;border:3px solid var(--yellow);border-radius:18px;padding:12px 16px;margin:10px 0;font-size:clamp(16px,3.4vw,19px)}
+
+.factbox b{color:#a56200;display:block}
+
+.after{display:none;background:#e3f8ef;border:3px solid var(--mint);color:#0b5c46;border-radius:18px;padding:12px 16px;margin-top:12px;font-size:clamp(17px,3.5vw,20px)}
+
+.after.show{display:block}
+
+.q{font-weight:900;font-size:clamp(19px,3.8vw,23px);color:var(--blue2);margin:14px 0 8px}
+
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:right;margin:10px 0;padding:12px 16px;border-radius:16px;border:3px solid var(--line);background:#f3f9ff;color:var(--ink);font-size:clamp(16px,3.4vw,20px);font-weight:700;min-height:58px}
+
+.opt .oi{font-size:34px;flex:none;line-height:1}
+
+.opt:hover:not(:disabled){border-color:var(--orange)}
+
+.opt.ok{background:#d9f7ec;border-color:var(--mint)}
+
+.opt.no{background:#ffe2de;border-color:var(--coral)}
+
+.opt:disabled{cursor:default}
+
+.fb{margin-top:10px;border-radius:14px;padding:12px 16px;font-size:clamp(16px,3.4vw,19px);display:none}
+
+.fb.good{display:block;background:#d9f7ec;color:#0b5c46}
+
+.fb.bad{display:block;background:#fff1c9;color:#6b4a00}
+
+.retry{margin-top:10px}
+
+.nav2{display:flex;justify-content:space-between;gap:10px;margin-top:16px;flex-wrap:wrap;align-items:center}
+
+textarea{width:100%;min-height:80px;border-radius:14px;border:3px solid var(--line);background:#f3f9ff;color:var(--ink);font-family:inherit;font-size:17px;padding:10px}
+
+.list{margin:6px 0;padding-inline-start:22px}.list li{font-size:clamp(17px,3.4vw,20px);margin:6px 0}
+
+.note{margin-top:14px;background:#fff7d6;border:2px solid var(--yellow);border-radius:16px;padding:12px 16px;font-size:16px}
+
+.res{direction:ltr;unicode-bidi:isolate;font-size:clamp(40px,10vw,64px);text-align:center;font-weight:900;color:var(--orange)}
+
+.badge{font-size:84px;text-align:center}
+
+.check{display:flex;flex-direction:column;gap:8px;margin:10px 0}
+
+.check label{display:flex;gap:10px;align-items:center;background:#f3f9ff;border:2px solid var(--line);border-radius:12px;padding:10px 14px;font-size:17px}
+
+.check input{width:24px;height:24px;accent-color:var(--orange)}
+
+/* ===== 360 ===== */
+
+.stations{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+
+.stations div{flex:1;min-width:150px;background:#fff;border:3px solid var(--line);border-radius:14px;padding:8px 12px;font-weight:800;font-size:15px;color:#6a84bd}
+
+.stations div.on{border-color:var(--orange);color:var(--orange)}
+
+.stations div.ok{border-color:var(--mint);color:var(--mint)}
+
+#stage{user-select:none;-webkit-user-select:none;position:relative;height:clamp(330px,62vh,640px);touch-action:none;cursor:grab;background:#000;border-radius:22px;overflow:hidden;border:4px solid var(--blue)}
+
+#stage.drag{cursor:grabbing}
+
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+
+#lens{position:absolute;left:50%;top:50%;border-radius:50%;transform:translate(-50%,-50%);border:7px solid var(--yellow);box-shadow:0 0 0 9999px rgba(10,30,90,.42),inset 0 0 40px rgba(255,255,255,.28);pointer-events:none;z-index:2}
+
+#lens::after{content:"";position:absolute;left:85.4%;top:85.4%;width:20px;height:96px;border-radius:10px;background:linear-gradient(90deg,#a36d34,#6e4520);transform:translate(-50%,0) rotate(-45deg);transform-origin:top center}
+
+#hots{position:absolute;inset:0;z-index:3;pointer-events:none}
+
+.hs{pointer-events:auto;position:absolute;left:0;top:0;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;border:3px solid #fff;background:rgba(255,106,26,.75);display:none;align-items:center;justify-content:center;font-size:20px;color:#fff;font-weight:900;padding:0;transition:opacity .15s}
+
+.hs::after{content:"";width:12px;height:12px;border-radius:50%;background:#fff}
+
+.hs.inlens{animation:pulse 1.4s infinite;background:rgba(255,210,63,.95)}
+
+.hs.done{background:rgba(25,181,138,.9);animation:none}.hs.done::after{display:none}
+
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,210,63,.9)}70%{box-shadow:0 0 0 18px rgba(255,210,63,0)}100%{box-shadow:0 0 0 0 rgba(255,210,63,0)}}
+
+.hint{position:absolute;top:10px;inset-inline:10px;z-index:4;background:rgba(10,30,90,.9);color:#fff;border-radius:14px;padding:8px 14px;font-size:15px;text-align:center}
+
+.hud{position:absolute;inset-inline:10px;bottom:10px;z-index:4;display:flex;justify-content:space-between;align-items:flex-end;gap:8px;pointer-events:none}
+
+.hud>*{pointer-events:auto}
+
+.dpad{display:grid;grid-template-columns:repeat(3,46px);grid-template-rows:repeat(3,46px);gap:4px}
+
+.dpad button,.tb{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.95);color:var(--ink);font-size:20px;font-weight:900;box-shadow:0 3px 8px rgba(0,0,0,.4);padding:0}
+
+.dpad .u{grid-column:2;grid-row:1}.dpad .l{grid-column:1;grid-row:2}.dpad .c{grid-column:2;grid-row:2;font-size:16px}.dpad .r{grid-column:3;grid-row:2}.dpad .d{grid-column:2;grid-row:3}
+
+.tools{display:flex;flex-direction:column;gap:6px}
+
+.found{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0;flex-wrap:wrap}
+
+.score{background:var(--orange);color:#fff;font-weight:900;border-radius:999px;padding:4px 18px}
+
+.simple{display:none;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+
+.item{background:#fff;border:3px solid var(--line);border-radius:16px;padding:12px;text-align:center;color:var(--ink);font-weight:800;font-size:16px}
+
+.item span{display:block;font-size:42px}.item.done{border-color:var(--mint)}.item:hover{border-color:var(--orange)}
+
+.modal{position:fixed;inset:0;background:rgba(5,20,70,.78);display:none;align-items:center;justify-content:center;padding:14px;z-index:90;overflow:auto}
+
+.modal.open{display:flex}
+
+.mcard{background:#fff;color:var(--ink);border-radius:24px;max-width:520px;width:100%;padding:24px;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.5);border:5px solid var(--yellow)}
+
+.mcard .big{font-size:74px;line-height:1.1}.mcard h3{margin:4px 0;font-size:26px;color:var(--blue2)}.mcard p{font-size:19px;margin:8px 0 16px}
+
+.tray{margin:12px 0;min-height:100px;border-radius:50% / 38%;background:#fff;border:6px solid var(--yellow);box-shadow:inset 0 0 0 6px #fff4cc;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding:14px;font-size:20px;font-weight:800}
+
+.foods{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+
+.food{background:#f3f9ff;border:3px solid var(--line);border-radius:16px;padding:10px;color:var(--ink);font-weight:800;font-size:16px;text-align:center}
+
+.food span{display:block;font-size:42px}.food small{display:block;color:#6a84bd;font-weight:500;font-size:13px}
+
+.food.chosen{border-color:var(--orange);background:#fff3e8}.food.good{border-color:var(--mint);background:#e3f8ef}
+
+.cards4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+
+.gcard{background:#fff;border:3px solid var(--line);border-radius:20px;padding:18px}
+
+.gcard h3{margin:0 0 6px;font-size:22px;color:var(--blue2)}.gcard p{margin:0;font-size:17px}
+
+@media (max-width:860px){.homegrid{grid-template-columns:1fr}.side{order:2}.nowrow,.feat,.facts,.cards4{grid-template-columns:1fr}.bgrid{grid-template-columns:1fr}.bbox.wide{grid-column:auto}.planet{display:none}.dpad{grid-template-columns:repeat(3,40px);grid-template-rows:repeat(3,40px)}.dpad button,.tb{width:40px;height:40px}.navbar button{padding:6px 12px;font-size:14px}}
+
+@media print{.navwrap,.sky,footer.foot,.noprint,.view:not(.on){display:none!important}body{background:#fff}.gcard,.bbox,.note{border:1px solid #999;break-inside:avoid}}
+
+#draw{width:100%;height:auto;background:#fff;border:3px solid var(--line);border-radius:18px;touch-action:none;cursor:crosshair;margin-top:8px}
+.ideas{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}.ideas span{background:#fff7d6;border:2px solid var(--yellow);border-radius:999px;padding:4px 14px;font-weight:800;font-size:15px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.sw{width:38px;height:38px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--line)}.sw.on{box-shadow:0 0 0 4px var(--orange)}
+.ticker{background:#fff7d6;border-block:3px solid var(--yellow);overflow:hidden;white-space:nowrap;font-weight:800;color:var(--ink);padding:6px 0}
+.ticker div{display:inline-block;padding-inline-start:100%;animation:tk 28s linear infinite}@keyframes tk{to{transform:translateX(100%)}}
+.fl{position:absolute;font-size:34px;animation:bob 3s ease-in-out infinite;z-index:1}@keyframes bob{50%{transform:translateY(-10px)}}
+.food.bad.chosen{border-color:var(--coral);background:#ffe2de}
+
+/* ===== رادار البطل ===== */
+#lens::after{display:none}
+#lens::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(25,181,138,.5),rgba(25,181,138,0) 28%);animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* ===== اليوم العالمي للسكري ===== */
+.wddpill{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:#fff;color:var(--blue2);border:3px solid var(--blue);border-radius:999px;padding:3px 16px 3px 8px;font-weight:800;font-size:15px}
+.wddpill .wdd{flex:none}
+.sky.compact .wddpill{display:none}
+.wddsec{display:flex;gap:20px;align-items:center;background:linear-gradient(135deg,#e7f1ff,#fff);border:3px solid var(--blue);border-radius:24px;padding:20px;margin-top:22px}
+.wddsec .wl{flex:none}
+.wddsec h2{margin:6px 0 2px;color:var(--blue2);font-size:clamp(21px,4.4vw,28px)}
+.wddsec .cd{margin:0 0 6px;color:var(--orange);font-weight:900;font-size:19px}
+.wddsec ul{margin:0 0 8px;padding:0;list-style:none}
+.wddsec li{font-size:16px;margin:3px 0}
+.wddsec .how{background:#fff7d6;border:2px solid var(--yellow);border-radius:14px;padding:10px 14px;font-size:16px}
+.wddsec>div{min-width:0}
+/* ===== تشجيع وعناصر مرئية ===== */
+.cheer{margin:14px 0 0;background:linear-gradient(90deg,#7b3fd1,#1e63e9);color:#fff;border-radius:999px;padding:8px 20px;text-align:center;font-weight:900;font-size:clamp(15px,3.2vw,19px);box-shadow:0 5px 0 rgba(15,71,184,.35)}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+@media (max-width:560px){.team{grid-template-columns:repeat(2,1fr)}}
+.tm{background:#fff;border:3px solid var(--line);border-radius:20px;padding:10px 10px 14px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0}
+.tm .pt{width:100%;max-width:130px;height:auto;display:block}
+.tm b{font-size:19px;color:var(--blue2)}
+.tm .rl{background:var(--orange);color:#fff;border-radius:999px;padding:0 12px;font-weight:800;font-size:14px}
+.tm small{color:#5c76b4;font-size:13.5px;line-height:1.6;margin-top:4px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.bdg{flex:1;min-width:76px;text-align:center;font-weight:800;font-size:13px;border:3px dashed var(--line);border-radius:14px;padding:6px 4px;color:#8aa0cf;filter:grayscale(1);opacity:.7}
+.bdg span{display:block;font-size:30px}
+.bdg.on{border:3px solid var(--mint);background:#e3f8ef;color:#0b5c46;filter:none;opacity:1}
+.masc{position:fixed;bottom:10px;width:128px;z-index:5;pointer-events:none;display:none}
+.masc .pt{width:100%;height:auto;display:block}
+.masc .mb{background:#fff;border:3px solid var(--blue);border-radius:16px;padding:6px 10px;font-weight:800;font-size:13px;line-height:1.5;margin-bottom:4px;text-align:center}
+#mascL{left:8px}#mascR{right:8px}
+@media (min-width:1560px){.masc{display:block}}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,40px);opacity:0;transition:transform .25s,opacity .25s;background:var(--orange);color:#fff;font-weight:900;font-size:20px;padding:10px 24px;border-radius:999px;box-shadow:0 6px 0 #c24c07;z-index:120;pointer-events:none;max-width:92vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.conf{position:fixed;inset:0;pointer-events:none;z-index:119;overflow:hidden}
+.conf i{position:absolute;top:-14px;width:10px;height:14px;border-radius:2px;animation:fall 1.5s ease-in forwards}
+@keyframes fall{to{transform:translate(var(--dx),105vh) rotate(540deg)}}
+.howto{background:#fff7d6;border:3px solid var(--yellow);border-radius:18px;padding:10px 16px;margin-bottom:12px;font-size:16px}
+.howto ol{margin:4px 0 0;padding-inline-start:22px}
+.stks{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0}
+.stk{width:44px;height:44px;border-radius:12px;background:#fff;border:3px solid var(--line);font-size:24px;padding:0}
+.stk.on{border-color:var(--orange);background:#fff3e8}
+.mcard .q{margin-top:6px}
+.mcard .opt{font-size:17px;min-height:50px}
+.mcard .fb{text-align:right}
+@media (max-width:860px){.wddsec{flex-direction:column;align-items:flex-start}}
+.mcard .retry{margin-bottom:14px}
+</style>
+
+<div dir="rtl" lang="ar" id="app-root">
+
+<div class="navwrap"><nav class="navbar" aria-label="التنقل الرئيسي">
+
+ <button data-go="home" data-nav="home">الرئيسية</button>
+
+ <button data-go="sb" data-nav="story">القصة<span class="ck" id="ckStory"></span></button>
+
+ <button data-go="vb" data-nav="vr">تجربة 360°<span class="ck" id="ckVr"></span></button>
+
+ <button data-go="fb" data-nav="final">النشاط الإبداعي<span class="ck" id="ckFinal"></span></button>
+
+ <button data-go="wdd">14 نوفمبر 💙</button>
+ <button data-go="about" data-nav="about">عن المشروع</button>
+
+</nav></div>
+
+<header class="sky" id="sky">
+
+ <div class="stars"></div><span class="fl" style="right:8%;top:18px">😷</span><span class="fl" style="left:10%;top:30px;animation-delay:.6s">🦸</span><span class="fl" style="left:44%;top:6px;animation-delay:1.2s">🧼</span>
+
+ <svg class="planet p1" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="32" fill="#ff9a2e"/><path d="M40,48 q20,-10 40,6" stroke="#ffb95e" stroke-width="6" fill="none"/><ellipse cx="60" cy="62" rx="56" ry="13" fill="none" stroke="#ffd23f" stroke-width="7" transform="rotate(-20 60 62)"/></svg>
+
+ <svg class="planet p2" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="34" fill="#3fa3ff"/><path d="M36,50 q14,-14 30,-4 q10,8 -2,18 q-16,6 -28,-14z" fill="#3fbf6a"/><path d="M62,84 q16,-6 22,-20 q8,16 -8,26z" fill="#3fbf6a"/></svg>
+
+ <svg class="planet p3" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4l7 16 17 2-13 11 4 17-15-9-15 9 4-17-13-11 17-2z" fill="#ffd23f"/></svg>
+
+ <button class="logo" data-go="home" aria-label="عالم السكري: رحلة وعي للأطفال"><span class="l1">عالم السكري</span><span class="l2">رحلة وعي للأطفال</span></button>
+
+ <button class="wddpill" data-go="wdd"><span data-wddlogo="34"></span><span>14 نوفمبر · اليوم العالمي للسكري</span></button>
+ <div class="cloudrow"></div>
+
+</header>
+
+<!-- ============ الرئيسية ============ -->
+
+<section class="view" id="v-home"><div class="ticker"><div>😷 الماسك يحميني ويحمي زملائي &nbsp;·&nbsp; 🧼 أغسل يديّ بالماء والصابون &nbsp;·&nbsp; 💧 الماء رفيقي الدائم &nbsp;·&nbsp; 🥗 أختار غذائي بذكاء &nbsp;·&nbsp; 🏃 أتحرك وألعب &nbsp;·&nbsp; 🤝 السكري غير معدٍ، أكون صديقًا داعمًا &nbsp;·&nbsp; 🦸 أنا بطل الصحة</div></div>
+
+ <div class="wrap">
+
+  <div class="banner" id="banner" aria-roledescription="شريط عرض">
+
+   <div class="slide on" data-i="0"><div class="art" data-art="classroom"></div><div class="cap"><h2>ابدأ القصة: فريق الأبطال الصغار</h2><p>تابع أحمد وأصدقاءه الأبطال في خمس مهمات مصورة، ثم أجب عن الأسئلة.</p><button class="btn small" data-go="sb">ابدأ القصة ←</button></div></div>
+
+   <div class="slide" data-i="1"><div class="art" data-art="cafe"></div><div class="cap"><h2>استكشف المقصف برادار البطل 🔍</h2><p>دوّر المشهد 360° واكتشف العناصر، ثم كوّن وجبة متنوعة.</p><button class="btn small" data-go="vb">ابدأ تجربة 360° ←</button></div></div>
+
+   <div class="slide" data-i="2"><div class="art" data-art="end"></div><div class="cap"><h2>النشاط الإبداعي: ارسم رسالتك 🎨</h2><p>ارسم بطل الصحة أو رسالة داعمة لزميلك المصاب بالسكري.</p><button class="btn small" data-go="fb">افتح النشاط الإبداعي ←</button></div></div>
+
+   <button class="arrow pv" id="bPrev" aria-label="السابق">›</button><button class="arrow nx" id="bNext" aria-label="التالي">‹</button>
+
+   <div class="dots" id="bDots"></div>
+
+  </div>
+
+  <div class="cheer" id="cheerBar"><span id="cheerTxt"></span></div>
+
+  <div class="homegrid">
+
+   <aside class="side">
+
+    <button class="live" data-go="sb">ابدأ الرحلة الآن ◉</button>
+
+    <div class="sidebox"><h3>🧭 مسار الرحلة</h3>
+
+     <ul class="route">
+
+      <li id="rtStory" data-go="sb"><span class="n">1</span><span>القصة<small>5 إلى 7 دقائق</small></span></li>
+
+      <li id="rtVr" data-go="vb"><span class="n">2</span><span>تجربة 360°<small>7 إلى 10 دقائق</small></span></li>
+
+      <li id="rtFinal" data-go="fb"><span class="n">3</span><span>النشاط الإبداعي<small>6 إلى 8 دقائق</small></span></li>
+
+     </ul></div>
+
+    <div class="sidebox"><h3>🏅 شاراتي</h3><div class="badges"><div class="bdg" id="bgStory"><span>🛡️</span>بطل القصة</div><div class="bdg" id="bgVr"><span>🔭</span>بطل 360°</div><div class="bdg" id="bgFinal"><span>🎨</span>بطل الإبداع</div></div><small class="muted">أكمل الأنشطة لتضيء الشارات.</small></div>
+
+    <div class="sidebox credit"><h3>📚 المقرر</h3><small>المقرر</small><b style="font-size:15px">TCHL418 · مقرر التغذية والصحة والسلامة للأطفال</b></div>
+
+   </aside>
+
+   <div class="main">
+
+    <h2 class="h2" style="margin-top:6px">الآن في الرحلة</h2>
+
+    <div class="nowrow">
+
+     <button class="now" data-go="sb"><span class="dot">1</span><span class="th" data-art="classroom"></span><span><b>القصة المصورة</b><span class="t">5 – 7 دقائق</span></span></button>
+
+     <button class="now" data-go="vb"><span class="dot">2</span><span class="th" data-art="cafe"></span><span><b>مهمة المقصف 360°</b><span class="t">7 – 10 دقائق</span></span></button>
+
+     <button class="now" data-go="fb"><span class="dot">3</span><span class="th" data-art="end"></span><span><b>النشاط الإبداعي</b><span class="t">6 – 8 دقائق</span></span></button>
+
+    </div>
+
+    <h2 class="h2">برامجنا المميزة</h2>
+
+    <div class="feat">
+
+     <div class="fcard c1" id="pcStory"><span class="done">✓ اكتملت</span><div class="pic" data-art="gate"></div><div class="txt"><h3>القصة التعليمية</h3><p>فريق الأبطال الصغار يكشف أسرار الصداقة والاحترام.</p><button class="btn" data-go="sb">ابدأ القصة ←</button></div></div>
+
+     <div class="fcard c2" id="pcVr"><span class="done">✓ اكتملت</span><div class="pic" data-art="cafe"></div><div class="txt"><h3>مهمة المقصف 360°</h3><p>استخدم رادار البطل لاكتشاف الأطعمة وكوّن وجبتك.</p><button class="btn" data-go="vb">ابدأ التجربة ←</button></div></div>
+
+     <div class="fcard c3" id="pcFinal"><span class="done">✓ اكتملت</span><div class="pic" data-art="office"></div><div class="txt"><h3>النشاط الإبداعي</h3><p>ارسم رسالتك أو بطلك الصحي لتدعم زميلك المصاب بالسكري.</p><button class="btn" data-go="fb">افتح الدليل ←</button></div></div>
+
+    </div>
+
+    <div class="wddsec" id="wdd"><span class="wl" data-wddlogo="96"></span><div><span class="tag">مناسبة عالمية</span><h2>14 نوفمبر · اليوم العالمي للسكري</h2><ul><li>🗓️ يُحتفل به في 14 نوفمبر من كل عام.</li><li>🔵 رمزه الدائرة الزرقاء، ولونه الأزرق.</li><li>🔬 اختير هذا التاريخ تكريمًا لمولد فريدريك بانتنغ، أحد من ساهموا في اكتشاف الإنسولين.</li><li>🌍 بدأته منظمات صحية عالمية عام 1991، واعترفت به الأمم المتحدة عام 2006.</li></ul><div class="how"><b>كيف نشارك في مدرستنا؟</b> نرتدي اللون الأزرق 💙 · نرسم الدائرة الزرقاء 🎨 · نشارك زميلًا معلومة صحيحة 🗣️ · نقول كلمة لطيفة 🤝</div></div></div>
+
+    <h2 class="h2">تعرّف على أبطال الفريق</h2>
+
+    <div class="team" id="team"></div>
+
+    <h2 class="h2">رسائل الرحلة</h2>
+
+    <div class="facts">
+
+     <div class="fact"><h3>🎯 أهدافنا</h3><p>تعزيز الوعي الصحي، وتشجيع العادات المتوازنة، وتعلّم احترام الزميل المصاب بالسكري.</p></div>
+
+     <div class="fact"><h3>💡 معلومة مهمة</h3><p>السكري غير معدٍ، ويمكن للطفل المصاب به المشاركة في أنشطة المدرسة مع مراعاة احتياجاته الصحية.</p></div>
+
+     <div class="fact"><h3>💗 تذكّر دائمًا</h3><p>الدعم والاحترام يصنعان فرقًا كبيرًا. لا تسخر من أحد، واطلب مساعدة شخص بالغ موثوق عند الحاجة.</p></div>
+
+    </div>
+
+    <div class="about" id="about">
+
+     <h2>عن المشروع</h2>
+
+     <p class="muted" style="font-size:17px">نشاط توعوي صحي يهدف إلى تبسيط بعض المعلومات عن السكري للأطفال، وتنمية التعاطف والسلوك الداعم داخل المدرسة. ويمكن تنفيذه في أسبوع الاحتفال باليوم العالمي للسكري (14 نوفمبر من كل عام). الفئة المستهدفة: تلاميذ الصف الثالث الابتدائي.</p>
+
+     <div class="credits"><div><small>الفئة المستهدفة</small><strong>الصف الثالث الابتدائي</strong></div><div><small>المناسبة</small><strong>اليوم العالمي للسكري · 14 نوفمبر</strong></div><div><small>إعداد</small><strong>عبدالرحمن كمال</strong></div><div><small>إشراف</small><strong>د. منى إبراهيم</strong></div><div><small>المقرر</small><strong>TCHL418 · مقرر التغذية والصحة والسلامة للأطفال</strong></div></div>
+
+     
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </div>
+
+</section>
+
+<section class="view" id="v-sb"><div class="wrap page"><div class="crumb"><b>1 · القصة</b> ← 2 · لعبة 360° ← 3 · النشاط الإبداعي</div><div id="briefStory"></div></div></section>
+
+<section class="view" id="v-story"><div class="wrap page">
+
+ <div class="crumb"><b>1 · القصة</b> ← 2 · لعبة 360° ← 3 · النشاط الإبداعي</div>
+
+ <div class="panel">
+
+  <div class="bar"><strong id="stCount">الصفحة 1 من 8</strong><div class="pbar" aria-hidden="true"><i id="stBar"></i></div><button class="btn small line" data-go="sb">دليل النشاط</button></div>
+
+  <div id="stBody"></div>
+
+ </div>
+
+</div></section>
+
+<section class="view" id="v-vb"><div class="wrap page"><div class="crumb">1 · القصة ← <b>2 · لعبة 360°</b> ← 3 · النشاط الإبداعي</div><div id="briefVr"></div></div></section>
+
+<section class="view" id="v-vr"><div class="wrap page">
+
+ <div class="crumb">1 · القصة ← <b>2 · مهمة أحمد في مقصف المدرسة</b> ← 3 · النشاط الإبداعي</div>
+
+ <div class="stations" id="stations"><div>1 · استكشف المقصف</div><div>2 · ضع الغذاء في الصحن</div><div>3 · النتيجة</div></div>
+
+ <div id="s1">
+
+  <div class="howto"><b>📋 إرشادات سريعة قبل البدء</b><ol><li>اسحب المشهد بإصبعك أو بالفأرة ليدور حولك 360°.</li><li>ضع النقطة المضيئة داخل رادار البطل ثم اضغط عليها.</li><li>اقرأ المعلومة وأجب عن السؤال لتكسب نجمة ⭐.</li></ol></div>
+
+  <div id="stage" aria-label="مشهد مقصف المدرسة بزاوية 360 درجة">
+
+   <canvas id="gl"></canvas>
+
+   <div id="lens"></div>
+
+   <div id="hots"></div>
+
+   <div class="hint" id="hint">🔍 حرّك المشهد، وضع الأشياء داخل رادار البطل لتضيء النقاط، ثم اضغط عليها.</div>
+
+   <div class="hud">
+
+    <div class="dpad" aria-label="التحكم في الاتجاه"><button class="u" data-d="u" aria-label="أعلى">▲</button><button class="l" data-d="l" aria-label="يمين">◀</button><button class="c" data-d="c" aria-label="إعادة">⟲</button><button class="r" data-d="r" aria-label="يسار">▶</button><button class="d" data-d="d" aria-label="أسفل">▼</button></div>
+
+    <div class="tools"><button class="tb" id="zin" aria-label="تكبير">+</button><button class="tb" id="zout" aria-label="تصغير">−</button><button class="tb" id="fs" aria-label="ملء الشاشة" style="font-size:18px">⛶</button></div>
+
+   </div>
+
+  </div>
+
+  <div class="simple" id="simple"></div>
+
+  <div class="found"><span class="score" id="foundN">الأنشطة المكتملة: 0 من 8 ⭐</span>
+
+   <span><button class="btn small line" id="resetAct">🔄 إعادة النشاط</button> <button class="btn small line" id="toggleHot">إخفاء النقاط</button> <button class="btn small line" id="toggleSimple">العرض العادي (بديل مبسط)</button></span></div>
+
+  <div class="nav2"><button class="btn line" data-go="vb">دليل النشاط</button><button class="btn" id="to2" disabled>المحطة 2: ضع الغذاء في الصحن ←</button></div>
+
+ </div>
+
+ <div id="s2" style="display:none"><div class="panel"><div class="sbody">
+
+  <h3>🍽️ المحطة 2: ضع الغذاء في الصحن</h3>
+
+  <p class="txt">هدف المحطة: أن تميّز الأطعمة الصحية من الأطعمة الأقل مناسبة لطفل مصاب بالسكري. اختر 3 أطعمة على الأقل لطبق أحمد، ثم اضغط «تحقق من اختياراتي»؛ وسيخبرك أحمد إن كان في طبقك ما لا يناسبه.</p>
+
+  <div class="foods" id="foods"></div>
+
+  <div class="tray" id="tray"><span style="font-weight:500">الطبق فارغ</span></div>
+
+  <div class="fb" id="trayFb" aria-live="polite"></div>
+
+  <div class="nav2"><span><button class="btn" id="chk">تحقق من اختياراتي</button> <button class="btn line" id="retryTray">حاول مجددًا</button></span><button class="btn" id="to3" disabled>عرض النتيجة ←</button></div>
+
+  <p class="note">لا توجد وجبة واحدة تناسب جميع الأطفال المصابين بالسكري. تختلف الوجبات حسب خطة كل طفل وإرشادات أسرته وفريقه الصحي، وهذه لعبة تعليمية وليست توصية علاجية.</p>
+
+ </div></div></div>
+
+ <div id="s3" style="display:none"><div class="panel"><div class="sbody">
+
+  <div class="badge">🔍🏅</div><h3 style="text-align:center">انتهت مهمة المقصف!</h3>
+
+  <div class="res" id="vrScore"></div>
+
+  <p class="txt" id="vrMsg" style="text-align:center"></p>
+
+  <h3>ما تعلمناه عن الغذاء المتوازن</h3>
+
+  <ul class="list"><li>الوجبة المتنوعة تجمع أطعمة من مجموعات مختلفة.</li><li>الماء غالبًا هو الخيار المناسب للشرب.</li><li>لكل طفل خطة صحية، فلا نقرر نحن ما يأكله زميلنا.</li></ul>
+
+  <h3 style="margin-top:14px">قائمة ملاحظة المعلم</h3>
+
+  <div class="check noprint"><label><input type="checkbox"> يختار التلميذ أطعمة متنوعة</label><label><input type="checkbox"> يفسّر اختياره تفسيرًا بسيطًا</label></div>
+
+  <p class="muted">المعيار الثالث (تحديد التصرف الصحيح في المواقف الصحية) يُلاحَظ في «النشاط الإبداعي».</p>
+
+  <div class="nav2"><span><button class="btn line" id="vrAgain">إعادة اللعب</button> <button class="btn line" data-go="sb">العودة إلى القصة</button></span><button class="btn" data-go="fb">الانتقال إلى النشاط الإبداعي ←</button></div>
+
+ </div></div></div>
+
+</div></section>
+
+<section class="view" id="v-fb"><div class="wrap page"><div class="crumb">1 · القصة ← 2 · لعبة 360° ← <b>3 · النشاط الإبداعي</b></div><div id="briefFinal"></div></div></section>
+
+<section class="view" id="v-guide"><div class="wrap page">
+<div class="crumb">1 · القصة ← 2 · لعبة 360° ← <b>3 · النشاط الإبداعي</b></div>
+<div class="panel"><div class="sbody"><h3>🎨 ارسم رسالتك لصديقك</h3>
+<p class="txt">اختر فكرة وارسمها: بطل صحي، أو رسالة تقول «السكري غير معدٍ، ونحن أصدقاء»، أو وجبة صحية، أو كيف نتصرف إذا شعر زميلنا بالتعب.</p>
+<div class="ideas"><span>🦸 بطل الصحة</span><span>🤝 كن صديقًا داعمًا</span><span>🥗 وجبتي الصحية</span><span>😷 نحمي أنفسنا</span><span>🧼 نغسل أيدينا</span></div>
+<div class="tools" id="dtools"></div>
+<div class="stks" id="dstk"></div>
+<canvas id="draw" width="800" height="480" aria-label="لوحة الرسم"></canvas>
+<div class="nav2"><span><button class="btn line small" id="dUndo">↩ تراجع</button> <button class="btn line small" id="dClear">🗑️ مسح</button></span><button class="btn" id="dDone">أنهيت رسمي ✓</button></div>
+<div class="after" id="dMsg">🌟 رسم رائع! اشرح رسالتك لزملائك بجملة واحدة.</div>
+<div class="nav2 noprint"><button class="btn line" data-go="vr">→ العودة إلى لعبة 360°</button><button class="btn line" data-go="home">الصفحة الرئيسية</button></div>
+</div></div></div></section>
+
+<section class="view" id="v-final"><div class="wrap page">
+
+ <div class="crumb">1 · القصة ← 2 · لعبة 360° ← <b>3 · التقويم الختامي</b></div>
+
+ <div class="panel">
+
+  <div class="bar"><strong id="fnCount">السؤال 1 من 6</strong><div class="pbar"><i id="fnBar"></i></div></div>
+
+  <div id="fnBody"></div>
+
+ </div>
+
+</div></section>
+
+<footer class="foot"><div class="wrap foot-in">
+
+ <div><b style="font-size:19px">عالم السكري: رحلة وعي للأطفال 💙</b><div style="color:#cfe3ff">نتعلم، نتفاعل، ونساند بعضنا</div><div style="color:#cfe3ff">14 نوفمبر · اليوم العالمي للسكري 💙</div></div>
+
+ <button class="btn small line" onclick="window.scrollTo(0,0)">العودة إلى الأعلى ↑</button>
+
+</div></footer>
+
+<aside class="masc" id="mascL" aria-hidden="true"></aside><aside class="masc" id="mascR" aria-hidden="true"></aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div><div class="conf" id="conf" aria-hidden="true"></div>
+
+<div class="modal" id="modal"><div class="mcard" role="dialog" aria-modal="true"><div class="big" id="mIcon"></div><h3 id="mName"></h3><p id="mInfo"></p><div id="mQ"></div><button class="btn" id="mOk">تم، متابعة الاستكشاف</button></div></div>
+
+<script>
+
+(function(){
+
+"use strict";
+
+var $=function(id){return document.getElementById(id);};
+
+var done={story:false,vr:false,final:false};
+
+/* ================= الرسوم: أبطال كرتونيون أصليون ================= */
+
+var OUT="#12306e",OL='stroke="'+OUT+'" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"';
+
+var CH={
+ ahmed:{skin:"#e2ad82",hair:"#2b1b12",style:"spike",suit:"#2f6fe0",cape:"#ff6a1a",mask:"#12306e",boot:"#12306e",glove:"#ffd23f",emb:"shield",hero:1},
+ salem:{skin:"#efc59d",hair:"#2b1b12",style:"short",suit:"#19b58a",cape:"#ffd23f",mask:"#0b5c46",boot:"#0b5c46",glove:"#ffffff",emb:"heart",hero:1},
+ yasser:{skin:"#d49a69",hair:"#1b1b1b",style:"short",suit:"#e5483d",cape:"#12306e",boot:"#7a1f1a",glove:"#ffd23f",emb:"eye",glasses:1,hero:1},
+ teacher:{skin:"#efc59d",hair:"#4a3a2a",style:"short",suit:"#7b3fd1",cape:"#ffd23f",boot:"#3d1d73",glove:"#ffffff",emb:"star",hero:1,stache:1},
+ dad:{skin:"#e8b98f",hair:"#3a2a2a",style:"short",suit:"#5b86c9",pants:"#2f3a55",stache:1},
+ omar:{skin:"#c58a5a",hair:"#3a2418",style:"short",suit:"#f0a21b",cape:"#7b3fd1",mask:"#3a2418",boot:"#444b66",glove:"#ffffff",emb:"bolt",hero:1},
+ rana:{skin:"#f1cfaa",hair:"#6b3a1a",style:"pony",suit:"#ff5fa2",cape:"#7b3fd1",mask:"#7a1f4d",boot:"#7a1f4d",glove:"#ffd23f",emb:"star",hero:1}
+};
+
+var ARM={down:[-46,-58],up:[-62,-182],out:[-78,-98],mid:[-20,-80],wave:[-64,-172],hip:[-52,-74]};
+
+function starPts(cx,cy,R,r,n){var p=[],i,a,q;for(i=0;i<n*2;i++){a=-Math.PI/2+i*Math.PI/n;q=i%2?r:R;p.push((cx+Math.cos(a)*q).toFixed(1)+","+(cy+Math.sin(a)*q).toFixed(1));}return p.join(" ");}
+
+function emblem(k,col){
+  var g='<circle cx="0" cy="-98" r="19" fill="#fff" '+OL+'/>';
+  if(k==="shield")g+='<path d="M0,-111 L11,-106 L11,-97 Q11,-90 0,-85 Q-11,-90 -11,-97 L-11,-106Z" fill="'+col+'"/>';
+  else if(k==="heart")g+='<path d="M0,-88 C-16,-99 -10,-111 0,-104 C10,-111 16,-99 0,-88Z" fill="'+col+'"/>';
+  else if(k==="eye")g+='<ellipse cx="0" cy="-98" rx="12" ry="8" fill="'+col+'"/><circle cx="0" cy="-98" r="4" fill="#fff"/>';
+  else if(k==="star")g+='<polygon points="'+starPts(0,-98,13,5.5,5)+'" fill="'+col+'"/>';
+  else if(k==="bolt")g+='<path d="M3,-111 L-8,-97 L-1,-97 L-4,-85 L8,-100 L1,-100Z" fill="'+col+'"/>';
+  return g;
+}
+
+function person(o){
+  var s=o.s||1,sk=o.skin,hr=o.hair,m=o.mood||"smile",sh=o.suit,pc=o.pants||o.suit,bt=o.boot||"#2a2a3a",g;
+  g='<g transform="translate('+o.x+','+o.y+') scale('+(o.flip?-s:s)+','+s+')">';
+  g+='<ellipse cx="0" cy="3" rx="54" ry="9" fill="rgba(0,0,0,.18)"/>';
+  if(o.cape)g+='<path d="M-34,-124 Q-80,-70 -68,-16 Q-30,-30 0,-24 Q30,-30 68,-16 Q80,-70 34,-124Z" fill="'+o.cape+'" '+OL+'/>';
+  g+='<rect x="-25" y="-56" width="21" height="48" rx="9" fill="'+pc+'" '+OL+'/><rect x="4" y="-56" width="21" height="48" rx="9" fill="'+pc+'" '+OL+'/>';
+  g+='<ellipse cx="-17" cy="-5" rx="19" ry="10" fill="'+bt+'" '+OL+'/><ellipse cx="17" cy="-5" rx="19" ry="10" fill="'+bt+'" '+OL+'/>';
+  g+='<rect x="-37" y="-130" width="74" height="84" rx="28" fill="'+sh+'" '+OL+'/>';
+  if(o.hero){g+='<rect x="-36" y="-64" width="72" height="12" fill="#ffd23f" '+OL+'/><rect x="-7" y="-66" width="14" height="16" rx="3" fill="#fff" '+OL+'/>'+emblem(o.emb,sh);}
+  [-1,1].forEach(function(sd){
+    var e=ARM[(sd<0?o.armL:o.armR)||"down"],ex=sd<0?e[0]:-e[0],ey=e[1];
+    g+='<path d="M'+(sd*30)+',-112 L'+ex+','+ey+'" stroke="'+OUT+'" stroke-width="29" stroke-linecap="round"/><path d="M'+(sd*30)+',-112 L'+ex+','+ey+'" stroke="'+sh+'" stroke-width="22" stroke-linecap="round"/><circle cx="'+ex+'" cy="'+ey+'" r="12" fill="'+(o.glove||sk)+'" '+OL+'/>';
+  });
+  g+='<rect x="-9" y="-140" width="18" height="18" fill="'+sk+'"/>';
+  g+='<circle cx="-42" cy="-158" r="8" fill="'+sk+'" '+OL+'/><circle cx="42" cy="-158" r="8" fill="'+sk+'" '+OL+'/>';
+  if(o.style==="pony")g+='<ellipse cx="48" cy="-172" rx="12" ry="27" transform="rotate(-18 48 -172)" fill="'+hr+'" '+OL+'/>';
+  g+='<circle cx="0" cy="-160" r="42" fill="'+sk+'" '+OL+'/>';
+  if(o.style==="spike")g+='<path d="M-43,-160 L-42,-198 L-26,-188 L-17,-221 L-3,-194 L9,-225 L20,-193 L35,-215 L40,-188 L44,-160 Q28,-186 0,-184 Q-28,-186 -43,-160Z" fill="'+hr+'" '+OL+'/>';
+  else g+='<path d="M-43,-160 Q-50,-212 0,-210 Q50,-212 43,-160 Q28,-188 0,-186 Q-28,-188 -43,-160Z" fill="'+hr+'" '+OL+'/>';
+  var masked=o.hero&&o.mask;
+  if(masked)g+='<path d="M-43,-172 Q0,-190 43,-172 L41,-150 Q26,-140 13,-150 Q0,-157 -13,-150 Q-26,-140 -41,-150Z" fill="'+o.mask+'" '+OL+'/>';
+  if(m==="laugh"){
+    g+='<path d="M-24,-158 Q-14,-170 -4,-158" stroke="'+(masked?"#fff":"#222")+'" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M4,-158 Q14,-170 24,-158" stroke="'+(masked?"#fff":"#222")+'" stroke-width="4" fill="none" stroke-linecap="round"/>';
+  }else{
+    g+='<ellipse cx="-14" cy="-160" rx="10" ry="12" fill="#fff" stroke="'+OUT+'" stroke-width="2"/><ellipse cx="14" cy="-160" rx="10" ry="12" fill="#fff" stroke="'+OUT+'" stroke-width="2"/><circle cx="-12" cy="-158" r="5.8" fill="'+OUT+'"/><circle cx="16" cy="-158" r="5.8" fill="'+OUT+'"/><circle cx="-10" cy="-161" r="2" fill="#fff"/><circle cx="18" cy="-161" r="2" fill="#fff"/>';
+  }
+  if(m==="worry"||m==="sad"){var bc=masked?"#fff":"#3a2a22";g+='<path d="M-26,-176 L-6,-182" stroke="'+bc+'" stroke-width="3.5" stroke-linecap="round"/><path d="M26,-176 L6,-182" stroke="'+bc+'" stroke-width="3.5" stroke-linecap="round"/>';}
+  g+='<circle cx="-27" cy="-142" r="7" fill="rgba(255,110,110,.38)"/><circle cx="27" cy="-142" r="7" fill="rgba(255,110,110,.38)"/>';
+  var mp={smile:'<path d="M-13,-142 Q0,-126 13,-142" stroke="#8a3b2a" stroke-width="3.5" fill="none" stroke-linecap="round"/>',
+   open:'<path d="M-13,-143 Q0,-118 13,-143Z" fill="#8a3b2a" stroke="#6a2a1c" stroke-width="2"/><path d="M-6,-131 Q0,-125 6,-131" fill="#ff8a8a"/>',
+   laugh:'<path d="M-15,-144 Q0,-114 15,-144Z" fill="#8a3b2a" stroke="#6a2a1c" stroke-width="2"/>',
+   worry:'<path d="M-10,-132 Q0,-141 10,-132" stroke="#8a3b2a" stroke-width="3.5" fill="none" stroke-linecap="round"/>',
+   sad:'<path d="M-11,-131 Q0,-142 11,-131" stroke="#8a3b2a" stroke-width="3.5" fill="none" stroke-linecap="round"/>'};
+  g+=mp[m]||mp.smile;
+  if(o.stache)g+='<path d="M-15,-146 Q-7,-153 0,-148 Q7,-153 15,-146 Q7,-143 0,-145 Q-7,-143 -15,-146Z" fill="'+hr+'"/>';
+  if(o.glasses)g+='<circle cx="-14" cy="-160" r="15" fill="rgba(125,210,255,.35)" stroke="'+OUT+'" stroke-width="4"/><circle cx="14" cy="-160" r="15" fill="rgba(125,210,255,.35)" stroke="'+OUT+'" stroke-width="4"/><path d="M-1,-160 L1,-160" stroke="'+OUT+'" stroke-width="4"/>';
+  return g+'</g>';
+}
+
+function P(k,o){var r={},b=CH[k],a;for(a in b)r[a]=b[a];for(a in o)r[a]=o[a];return person(r);}
+
+/* خلفيات وعناصر */
+
+function sky(){return '<defs><linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fcfff"/><stop offset="1" stop-color="#e8f7ff"/></linearGradient></defs><rect width="800" height="420" fill="url(#gSky)"/>';}
+
+function cloud(x,y,s){return '<g transform="translate('+x+','+y+') scale('+s+')" fill="#fff" opacity=".95"><ellipse cx="0" cy="0" rx="46" ry="18"/><ellipse cx="-24" cy="-12" rx="24" ry="18"/><ellipse cx="14" cy="-18" rx="28" ry="22"/></g>';}
+
+function tree(x,y,s){return '<g transform="translate('+x+','+y+') scale('+s+')"><rect x="-10" y="-70" width="20" height="72" fill="#8a5a2b"/><circle cx="0" cy="-92" r="44" fill="#3fa65a"/><circle cx="-34" cy="-70" r="30" fill="#4bbd68"/><circle cx="34" cy="-70" r="30" fill="#4bbd68"/></g>';}
+
+function school(x,y){return '<g transform="translate('+x+','+y+')"><rect x="0" y="40" width="230" height="130" fill="#f6dba5"/><rect x="-12" y="20" width="254" height="26" rx="6" fill="#d9534f"/><rect x="88" y="90" width="54" height="80" rx="8" fill="#2f6fe0"/><rect x="20" y="70" width="46" height="40" rx="6" fill="#bfe6ff" stroke="#fff" stroke-width="4"/><rect x="164" y="70" width="46" height="40" rx="6" fill="#bfe6ff" stroke="#fff" stroke-width="4"/><rect x="113" y="-20" width="4" height="46" fill="#7a5a3a"/><path d="M117,-20 L150,-8 L117,4Z" fill="#ffc93c"/></g>';}
+
+function city(){
+  var h=[[20,60,110],[88,50,150],[146,70,95],[224,54,130],[286,64,170],[358,50,100],[416,72,140],[496,56,115],[560,64,160],[632,52,105],[692,70,135],[770,40,100]],s='';
+  h.forEach(function(b,i){var y=296-b[2],wy,wx;s+='<rect x="'+b[0]+'" y="'+y+'" width="'+b[1]+'" height="'+b[2]+'" fill="'+(i%2?"#a9cdf7":"#bcd9fb")+'"/>';
+    for(wy=y+12;wy<284;wy+=22)for(wx=b[0]+8;wx<b[0]+b[1]-12;wx+=18)s+='<rect x="'+wx+'" y="'+wy+'" width="8" height="10" fill="#fff" opacity=".8"/>';});
+  return s;
+}
+
+function burst(x,y,t,col,s){return '<g transform="translate('+x+','+y+') scale('+(s||1)+')"><polygon points="'+starPts(0,0,72,50,12)+'" fill="'+(col||"#ffd23f")+'" '+OL+'/><text x="0" y="9" text-anchor="middle" font-family="Tahoma,Arial,sans-serif" font-weight="900" font-size="25" fill="'+OUT+'">'+t+'</text></g>';}
+
+function radar(x,y,s){return '<g transform="translate('+x+','+y+') scale('+s+')"><circle r="44" fill="rgba(10,40,80,.88)" stroke="#19b58a" stroke-width="6"/><circle r="28" fill="none" stroke="#19b58a" stroke-width="2" opacity=".7"/><circle r="12" fill="none" stroke="#19b58a" stroke-width="2" opacity=".7"/><path d="M0,0 L34,-22" stroke="#7dffd1" stroke-width="4" stroke-linecap="round"/><circle cx="20" cy="-12" r="5" fill="#ffd23f"/></g>';}
+
+function rumorCloud(x,y,s){return '<g transform="translate('+x+','+y+') scale('+s+')"><g fill="#8d96a8" '+OL+'><ellipse cx="0" cy="0" rx="62" ry="24"/><ellipse cx="-34" cy="-14" rx="30" ry="22"/><ellipse cx="22" cy="-24" rx="36" ry="28"/></g><text x="0" y="6" text-anchor="middle" font-family="Tahoma,Arial,sans-serif" font-weight="900" font-size="34" fill="#fff">؟؟</text><path d="M-20,34 L-26,58 M0,36 L0,62 M20,34 L26,58" stroke="#8d96a8" stroke-width="5" stroke-linecap="round"/></g>';}
+
+var BG={
+
+ gate:function(){return sky()+'<circle cx="700" cy="70" r="38" fill="#ffd24d"/>'+cloud(180,80,1)+cloud(430,50,.8)+'<rect y="300" width="800" height="120" fill="#7bd06f"/><rect y="372" width="800" height="48" fill="#d9c9a8"/>'+school(540,180)+tree(60,330,1);},
+
+ classroom:function(){return '<rect width="800" height="420" fill="#d7ecff"/><rect y="322" width="800" height="98" fill="#e6c18f"/><rect x="238" y="46" width="324" height="160" rx="10" fill="#2e6e52" stroke="#b5793a" stroke-width="10"/><path d="M280,110 q30,-34 60,0 t60,0 t60,0 t60,0" stroke="#fff" stroke-width="5" fill="none" opacity=".85"/><circle cx="300" cy="166" r="16" fill="none" stroke="#ffe08a" stroke-width="4"/><path d="M470,150 l22,-30 l22,30z" fill="none" stroke="#ff9f9f" stroke-width="4"/>'+
+   '<circle cx="400" cy="24" r="17" fill="#fff" stroke="#2f2a78" stroke-width="4"/><path d="M400,24 L400,12 M400,24 L410,28" stroke="#2f2a78" stroke-width="3"/>'+
+   [40,630].map(function(x){return '<rect x="'+x+'" y="70" width="130" height="150" rx="8" fill="#fff"/><rect x="'+(x+10)+'" y="80" width="110" height="130" fill="#9fdcff"/><path d="M'+(x+65)+',80 V210 M'+(x+10)+',145 H'+(x+120)+'" stroke="#fff" stroke-width="5"/><circle cx="'+(x+88)+'" cy="108" r="12" fill="#ffd24d"/>';}).join("")+
+   '<rect x="70" y="276" width="130" height="14" rx="4" fill="#b5793a"/><rect x="82" y="290" width="8" height="40" fill="#8a5a2b"/><rect x="180" y="290" width="8" height="40" fill="#8a5a2b"/><rect x="600" y="276" width="130" height="14" rx="4" fill="#b5793a"/><rect x="612" y="290" width="8" height="40" fill="#8a5a2b"/><rect x="710" y="290" width="8" height="40" fill="#8a5a2b"/>';},
+
+ cafe:function(){
+   var it='<g transform="translate(110,244)"><ellipse cx="0" cy="-14" rx="40" ry="14" fill="#c98a3f"/><rect x="-36" y="-26" width="72" height="8" rx="4" fill="#4caf50"/><ellipse cx="0" cy="-32" rx="38" ry="14" fill="#e2a65a"/></g>'+
+   '<circle cx="270" cy="216" r="28" fill="#e5322d"/><path d="M270,190 q4,-14 12,-18" stroke="#6b3a1a" stroke-width="5" fill="none"/><ellipse cx="288" cy="188" rx="12" ry="6" fill="#2fb34a"/>'+
+   '<rect x="380" y="164" width="52" height="80" rx="4" fill="#fff"/><rect x="380" y="164" width="52" height="24" fill="#4aa3df"/><circle cx="406" cy="214" r="12" fill="#4aa3df"/>'+
+   '<rect x="530" y="150" width="40" height="94" rx="14" fill="#58c4ff"/><rect x="538" y="128" width="24" height="28" rx="6" fill="#2a8fd0"/>'+
+   '<rect x="650" y="160" width="76" height="84" rx="10" fill="#ff9f1c"/><rect x="650" y="160" width="76" height="22" rx="10" fill="#ffbf47"/><circle cx="688" cy="212" r="16" fill="#ffd96b"/><path d="M706,160 L720,120 L738,120" stroke="#2f2a78" stroke-width="6" fill="none"/>';
+   var fl='';for(var i=0;i<20;i++){fl+='<path d="M'+(i*40)+',0 L'+(i*40+30)+',0 L'+(i*40+15)+',34Z" fill="'+["#ff6b57","#ffc93c","#2f6fe0","#1fb58f"][i%4]+'"/>';}
+   return '<rect width="800" height="420" fill="#ffe6a0"/>'+fl+'<rect y="70" width="800" height="14" fill="#2f6fe0" opacity=".25"/><rect y="244" width="800" height="92" fill="#b5793a"/><rect y="236" width="800" height="14" fill="#d49a58"/><rect y="336" width="800" height="84" fill="#f0c28b"/>'+it;},
+
+ playground:function(bench){return sky()+'<circle cx="90" cy="70" r="38" fill="#ffd24d"/>'+cloud(300,70,1)+cloud(600,110,.8)+city()+'<rect y="290" width="800" height="130" fill="#6cc56a"/><rect y="372" width="800" height="48" fill="#e0c9a0"/>'+tree(740,320,1.2)+'<path d="M560,150 L690,310" stroke="#ff6b57" stroke-width="20" stroke-linecap="round"/><rect x="548" y="130" width="40" height="170" rx="6" fill="#2f6fe0"/><path d="M548,130 h40" stroke="#fff" stroke-width="6"/>'+(bench?'<rect x="250" y="300" width="160" height="14" rx="4" fill="#8a5a2b"/><rect x="258" y="314" width="10" height="40" fill="#6e4520"/><rect x="392" y="314" width="10" height="40" fill="#6e4520"/><rect x="250" y="262" width="160" height="12" rx="4" fill="#8a5a2b"/>':'');},
+
+ office:function(){return '<rect width="800" height="420" fill="#f7e5c8"/><rect y="330" width="800" height="90" fill="#d9b98a"/><rect x="40" y="70" width="140" height="150" rx="8" fill="#fff"/><rect x="50" y="80" width="120" height="130" fill="#9fdcff"/><path d="M110,80 V210 M50,145 H170" stroke="#fff" stroke-width="5"/>'+
+   '<rect x="320" y="50" width="130" height="180" rx="8" fill="#fff" stroke="#c8c8c8" stroke-width="4"/><path d="M340,150 H430 M340,172 H430 M340,194 H410" stroke="#bbb" stroke-width="5"/><path d="M385,76 q-22,30 0,46 q22,-16 0,-46z" fill="#3787ed"/>'+
+   '<rect x="480" y="262" width="300" height="20" rx="6" fill="#8a5a2b"/><rect x="500" y="282" width="12" height="68" fill="#6e4520"/><rect x="750" y="282" width="12" height="68" fill="#6e4520"/><rect x="540" y="236" width="70" height="26" rx="4" fill="#fff"/><rect x="620" y="244" width="30" height="18" rx="3" fill="#ff6b57"/>'+
+   '<rect x="215" y="290" width="40" height="40" rx="6" fill="#c56a3a"/><circle cx="235" cy="270" r="22" fill="#3fa65a"/><circle cx="218" cy="282" r="16" fill="#4bbd68"/><circle cx="252" cy="282" r="16" fill="#4bbd68"/>';},
+
+ ending:function(){var cf='',i,cs=["#ff6b57","#ffc93c","#2f6fe0","#1fb58f","#ff8fb1"];for(i=0;i<40;i++){cf+='<rect x="'+((i*97)%780+10)+'" y="'+((i*53)%200+20)+'" width="9" height="14" rx="2" fill="'+cs[i%5]+'" transform="rotate('+(i*37%90)+' '+((i*97)%780)+' '+((i*53)%200)+')"/>';}
+   return sky()+'<circle cx="690" cy="70" r="36" fill="#ffd24d"/>'+cloud(130,60,1)+'<path d="M80,300 A320,260 0 0 1 720,300" stroke="#ff6b57" stroke-width="16" fill="none"/><path d="M100,300 A300,240 0 0 1 700,300" stroke="#ffc93c" stroke-width="16" fill="none"/><path d="M120,300 A280,220 0 0 1 680,300" stroke="#1fb58f" stroke-width="16" fill="none"/><path d="M140,300 A260,200 0 0 1 660,300" stroke="#2f6fe0" stroke-width="16" fill="none"/><rect y="296" width="800" height="124" fill="#6cc56a"/><rect y="376" width="800" height="44" fill="#e0c9a0"/>'+cf;}
+
+};
+
+function svg(label,body){return '<svg class="illus" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice" role="img" aria-label="'+label+'" xmlns="http://www.w3.org/2000/svg">'+body+'</svg>';}
+
+function txt(x,y,t,sz,col,w){return '<text x="'+x+'" y="'+y+'" text-anchor="middle" font-family="Tahoma,Arial,sans-serif" font-weight="'+(w||800)+'" font-size="'+(sz||22)+'" fill="'+(col||OUT)+'">'+t+'</text>';}
+
+function arrowR(x1,y,x2,col){return '<path d="M'+x1+','+y+' L'+x2+','+y+'" stroke="'+(col||OUT)+'" stroke-width="7" stroke-linecap="round"/><path d="M'+(x2-16)+','+(y-14)+' L'+x2+','+y+' L'+(x2-16)+','+(y+14)+'" stroke="'+(col||OUT)+'" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';}
+
+/* مشهد: الطعام والجلوكوز ومفتاح الإنسولين */
+function fuelScene(){
+  var d='',i;
+  for(i=0;i<5;i++)d+='<circle cx="'+(300+i*52)+'" cy="'+(128+(i%2?10:-10))+'" r="11" fill="#ffd23f" '+OL+'/>';
+  return '<rect width="800" height="420" fill="#eaf6ff"/>'+
+   '<circle cx="92" cy="125" r="52" fill="#fff" '+OL+'/><text x="92" y="143" text-anchor="middle" font-size="52">🍎</text>'+txt(92,205,"الطعام",24)+
+   arrowR(158,125,246,OUT)+
+   '<rect x="256" y="92" width="270" height="68" rx="34" fill="#ff8d8d" '+OL+'/>'+d+txt(392,205,"الجلوكوز: وقود الطاقة",24)+
+   arrowR(536,125,590,OUT)+
+   '<circle cx="690" cy="125" r="86" fill="#bfe6ff" '+OL+'/><rect x="656" y="88" width="68" height="78" rx="12" fill="#7b3fd1" '+OL+'/><circle cx="690" cy="118" r="9" fill="#ffd23f"/><rect x="686" y="120" width="8" height="22" rx="3" fill="#ffd23f"/>'+txt(735,245,"خلية الجسم",24)+
+   '<g transform="translate(560,290) rotate(-18)"><circle cx="0" cy="0" r="22" fill="#ffd23f" '+OL+'/><circle cx="0" cy="0" r="9" fill="#eaf6ff" '+OL+'/><rect x="20" y="-6" width="90" height="12" rx="6" fill="#ffd23f" '+OL+'/><rect x="82" y="4" width="10" height="18" rx="3" fill="#ffd23f" '+OL+'/><rect x="98" y="4" width="10" height="14" rx="3" fill="#ffd23f" '+OL+'/></g>'+
+   txt(580,360,"مفتاح الإنسولين يفتح الباب",23)+
+   '<path d="M606,276 C614,236 632,196 662,166" stroke="#7b3fd1" stroke-width="5" stroke-dasharray="9 8" fill="none" stroke-linecap="round"/>'+
+   P("yasser",{x:150,y:402,s:.78,mood:"open",armR:"wave"})+P("ahmed",{x:300,y:402,s:.78,mood:"smile",armL:"mid"});
+}
+
+/* مشهد: علامات يجب أن ننتبه لها */
+function symScene(){
+  var L=[["💧","عطش شديد"],["🚽","كثرة التبول"],["😴","تعب وخمول"],["🍽️","جوع شديد"],["👓","رؤية غير واضحة"],["⚖️","تغيّر في الوزن"]],s='',i,x,y;
+  for(i=0;i<6;i++){x=110+(i%3)*165;y=105+Math.floor(i/3)*165;
+    s+='<circle cx="'+x+'" cy="'+y+'" r="56" fill="#fff" '+OL+'/><text x="'+x+'" y="'+(y+16)+'" text-anchor="middle" font-size="48">'+L[i][0]+'</text>'+txt(x,y+88,L[i][1],21);}
+  return '<rect width="800" height="420" fill="#fff5d6"/>'+s+burst(650,100,"انتبه!","#ffd23f",1.05)+P("yasser",{x:715,y:404,s:.9,mood:"open",armR:"up"})+P("ahmed",{x:620,y:404,s:.7,mood:"worry",armL:"mid"});
+}
+
+var ART={
+
+ cover:function(){return svg("فريق الأبطال الصغار: أحمد وسالم وياسر",BG.playground(false)+P("salem",{x:190,y:402,s:1,mood:"open",armR:"wave"})+P("ahmed",{x:400,y:406,s:1.12,mood:"open",armL:"up",armR:"up"})+P("yasser",{x:610,y:402,s:1,flip:true,mood:"open",armL:"wave"})+burst(400,78,"معًا!","#ffd23f",1.15)+'<polygon points="'+starPts(110,130,28,12,5)+'" fill="#ffd23f" '+OL+'/>'+radar(728,150,.8));},
+
+ fuel:function(){return svg("الطعام يتحول إلى جلوكوز، ومفتاح الإنسولين يفتح باب الخلية",fuelScene());},
+
+ symptoms:function(){return svg("علامات قد تظهر عند ارتفاع السكر",symScene());},
+
+ gate:function(){return svg("أحمد يودّع أباه عند باب المدرسة",BG.gate()+P("dad",{x:210,y:396,s:1.08,armR:"wave"})+P("ahmed",{x:400,y:398,s:.86,mood:"open",armL:"wave"}));},
+
+ classroom:function(){return svg("الأبطال في الصف مع المعلم سامي",BG.classroom()+P("teacher",{x:120,y:396,s:1.08})+P("salem",{x:330,y:398,s:.88,mood:"open",armR:"mid"})+P("ahmed",{x:530,y:398,s:.88,mood:"smile"})+P("yasser",{x:700,y:398,s:.84,flip:true}));},
+
+ rumor:function(){return svg("غيمة الشائعات تظهر فوق الصف وسالم يسأل",BG.classroom()+rumorCloud(470,92,1.15)+P("teacher",{x:120,y:396,s:1.08})+P("salem",{x:330,y:398,s:.88,mood:"worry",armR:"mid"})+P("ahmed",{x:530,y:398,s:.88,mood:"worry"})+P("yasser",{x:700,y:398,s:.84,flip:true}));},
+
+ cafe:function(){return svg("الأبطال في مقصف المدرسة",BG.cafe()+radar(120,150,.7)+P("salem",{x:170,y:402,s:.92,armR:"mid"})+P("ahmed",{x:400,y:402,s:.92,mood:"open"})+P("yasser",{x:630,y:402,s:.92,flip:true,armL:"mid"}));},
+
+ office:function(){return svg("أحمد مع المعلم سامي يتابع خطته الصحية",BG.office()+P("yasser",{x:140,y:398,s:.84,mood:"open",armR:"mid"})+P("ahmed",{x:350,y:398,s:.9})+P("teacher",{x:600,y:398,s:1.1,armL:"mid"}));},
+
+ unwell:function(){return svg("أحمد يجلس متعبًا وياسر يذهب لطلب المساعدة",BG.playground(true)+P("ahmed",{x:330,y:372,s:.84,mood:"sad",armL:"mid",armR:"mid"})+P("yasser",{x:520,y:398,s:.9,mood:"worry",armR:"out",flip:true})+P("teacher",{x:690,y:372,s:.6}));},
+
+ bully:function(){return svg("زميل يسخر من أحمد وسالم يتدخل بلطف",BG.playground(false)+P("omar",{x:190,y:398,s:.9,mood:"laugh",armR:"out"})+P("ahmed",{x:430,y:398,s:.9,mood:"sad"})+P("salem",{x:640,y:398,s:.9,mood:"worry",armL:"mid",flip:true}));},
+
+ end:function(){return svg("الأبطال يحتفلون باليوم العالمي للسكري بالتعاون والاحترام",BG.ending()+P("rana",{x:110,y:398,s:.82,armR:"up"})+P("salem",{x:260,y:398,s:.86,armL:"up"})+P("ahmed",{x:400,y:402,s:1,mood:"open",armL:"up",armR:"up"})+P("yasser",{x:545,y:398,s:.86,mood:"open",armR:"up"})+P("omar",{x:690,y:398,s:.84,armL:"up"})+burst(400,92,"أحسنتم!","#ffd23f",1.05));},
+
+ portrait:function(k,label){return '<svg class="pt" viewBox="-78 -238 156 252" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="'+(label||"")+'"><circle cx="0" cy="-104" r="96" fill="#dff0ff"/>'+P(k,{x:0,y:2})+'</svg>';},
+
+ wdd:function(sz){return '<svg class="wdd" width="'+sz+'" height="'+sz+'" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="الدائرة الزرقاء: رمز التوعية بالسكري"><circle cx="50" cy="50" r="38" fill="none" stroke="#1e63e9" stroke-width="14"/><circle cx="50" cy="50" r="24" fill="#fff"/><path d="M50,36 C40,50 40,58 50,64 C60,58 60,50 50,36Z" fill="#1e63e9"/></svg>';}
+
+};
+
+
+/* ================= مكوّن السؤال (3 اختيارات مع أيقونات) ================= */
+
+function mcq(host,st,q,opts,onUpdate){
+
+  host.innerHTML='<p class="q"></p><div class="opts"></div><div class="fb" aria-live="polite"></div><div class="retry"></div>';
+
+  host.querySelector(".q").textContent=q;
+
+  var box=host.querySelector(".opts"),fb=host.querySelector(".fb"),rt=host.querySelector(".retry");
+
+  function paint(){
+
+    box.innerHTML="";fb.className="fb";fb.textContent="";rt.innerHTML="";
+
+    opts.forEach(function(o,i){
+
+      var b=document.createElement("button");b.type="button";b.className="opt";
+
+      if(o.i){var ic=document.createElement("span");ic.className="oi";ic.textContent=o.i;ic.setAttribute("aria-hidden","true");b.appendChild(ic);}
+
+      var tx=document.createElement("span");tx.textContent=o.t;b.appendChild(tx);
+
+      if(st.done){b.disabled=true;if(o.ok)b.classList.add("ok");}
+
+      else if(st.sel!=null){b.disabled=true;if(st.sel===i)b.classList.add("no");}
+
+      b.onclick=function(){choose(i);};box.appendChild(b);
+
+    });
+
+    if(st.done){var c=opts.filter(function(o){return o.ok;})[0];fb.className="fb good";fb.textContent="🎉 "+c.why;}
+
+    else if(st.sel!=null){
+
+      fb.className="fb bad";fb.textContent="💡 "+opts[st.sel].why;
+
+      var r=document.createElement("button");r.type="button";r.className="btn small";r.textContent="أعد المحاولة";
+
+      r.onclick=function(){st.sel=null;paint();};rt.appendChild(r);
+
+    }
+
+  }
+
+  function choose(i){
+
+    if(st.done)return;st.tries=(st.tries||0)+1;
+
+    if(opts[i].ok){st.done=true;st.first=(st.tries===1);st.sel=null;}else{st.sel=i;}
+
+    paint();if(opts[i].ok)cheer();if(onUpdate)onUpdate(st);
+
+  }
+
+  paint();
+
+}
+
+/* ================= بطاقات الدليل الإجرائي ================= */
+
+function brief(hostId,d){
+
+  var li=function(a){return "<ul>"+a.map(function(x){return "<li>"+x+"</li>";}).join("")+"</ul>";};
+
+  $(hostId).innerHTML='<div class="brief"><span class="tag">دليل النشاط قبل البدء</span><h2>'+d.title+'</h2><p style="margin:0;font-size:17px">'+d.intro+'</p>'+
+
+  '<div class="bgrid">'+
+
+  '<div class="bbox"><b>🎯 الهدف التعليمي</b><p>'+d.goal+'</p></div>'+
+
+  '<div class="bbox"><b>⏱️ المدة الزمنية</b><p>'+d.time+'</p></div>'+
+
+  '<div class="bbox"><b>📝 أداة التقييم</b><p>'+d.tool+'</p></div>'+
+
+  '<div class="bbox"><b>👩‍🏫 دور المعلم</b>'+li(d.teacher)+'</div>'+
+
+  '<div class="bbox"><b>🧒 دور التلميذ</b>'+li(d.student)+'</div>'+
+
+  '<div class="bbox"><b>✅ معايير النجاح</b>'+li(d.success)+'</div>'+
+
+  (d.how?'<div class="bbox wide"><b>▶️ تعليمات اللعب</b><p>'+d.how+'</p></div>':'')+
+
+  '</div><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" data-go="'+d.go+'">'+d.start+'</button>'+(d.extra||"")+'</div></div>';
+
+}
+
+brief("briefStory",{
+
+ title:"القصة التعليمية المصوّرة «أحمد وفريق الأبطال الصغار»",
+
+ intro:"قصة مصوّرة بأبطال كرتونيين في عشر صفحات وخمس مهمات، تشرح ما هو السكري وعلاماته وكيف نكون أصدقاء داعمين، ويجيب فيها التلميذ عن أسئلة قصيرة. وتصلح للاحتفال باليوم العالمي للسكري (14 نوفمبر).",
+
+ goal:"أن يحدد التلميذ التصرفات الصحية والاجتماعية الصحيحة في مواقف يومية تتعلق بطفل مصاب بالسكري.",
+
+ time:"5 إلى 7 دقائق",
+
+ tool:"ملاحظة اختيارات التلميذ، وإجاباته عن أسئلة القصة.",
+
+ teacher:["يهيّئ التلاميذ للموضوع بسؤال تمهيدي.","يوضح أن السكري مرض غير معدٍ.","يشرح طريقة استخدام القصة، ويوجّه التلاميذ دون إعطائهم الإجابات مباشرة.","يصحح المفاهيم الخاطئة بعد إجابات التلاميذ."],
+
+ student:["يتابع أحداث القصة المصوّرة.","يختار الإجابات في المواقف التفاعلية.","يفسّر اختياراته ويستنتج السلوك الصحيح."],
+
+ success:["يحدد التصرف الصحيح في ثلاثة مواقف على الأقل.","يوضح سبب اختياره في موقف واحد."],
+
+ how:"اقرأ الصفحة وانظر إلى الصورة، ثم اضغط على الإجابة التي تراها صحيحة، واقرأ التغذية الراجعة، ثم اضغط «التالي».",
+
+ start:"ابدأ القصة ←",go:"story"});
+
+brief("briefVr",{
+
+ title:"لعبة «مهمة أحمد في مقصف المدرسة» بزاوية 360°",
+
+ intro:"تجربة استكشاف برادار البطل في مقصف افتراضي، يجيب فيها التلميذ عن سؤال لكل عنصر، فيها محطتان: استكشف المقصف، ثم ضع الغذاء في الصحن.",
+
+ goal:"أن يختار التلميذ أمثلة مناسبة من الأطعمة ضمن وجبة متنوعة ومتوازنة، وأن يدرك أن الاختيارات الغذائية تعتمد على التوازن والخطة الصحية لكل طفل.",
+
+ time:"7 إلى 10 دقائق",
+
+ tool:"سجل ملاحظة مبسط (قائمة تحقق للمعلم) أثناء اللعبة، مع أسئلة قصيرة في نهايتها.",
+
+ teacher:["يراجع بإيجاز الرسائل الأساسية التي وردت في القصة.","يوضح طريقة استكشاف المشهد واستخدام رادار البطل.","يشجع التلاميذ على تفسير اختياراتهم بدلًا من تخمين الإجابات.","يناقش الإجابات بعد انتهاء اللعبة، ويصحح المفاهيم غير الدقيقة."],
+
+ student:["يستكشف المقصف الافتراضي برادار البطل.","يبحث عن عناصر الطعام، ويضغط على النقاط المضيئة، ويجيب عن سؤال كل عنصر.","يختار مكونات وجبة متنوعة ومتوازنة في الصحن.","يشرح بعض اختياراته."],
+
+ success:["يختار التلميذ مجموعة متنوعة من الأطعمة.","يوضح أن الاختيارات الغذائية تعتمد على التوازن والاحتياجات الصحية، وليس على منع مجموعة كاملة من الأطعمة للجميع.","يحدد التصرف الصحيح في موقف صحي واحد على الأقل (في التقويم الختامي)."],
+
+ how:"«حرّك المشهد لاستكشاف المقصف، وضع الأشياء داخل رادار البطل، واضغط على العناصر المضيئة». يمكنك السحب بإصبعك أو بالفأرة، أو استخدام الأسهم. وإن لم يعمل المشهد على الجهاز فاستخدم «العرض العادي».",
+
+ start:"ابدأ تجربة 360° ←",go:"vr",
+
+ extra:'<button class="btn line" data-go="story">← العودة إلى القصة</button>'});
+
+brief("briefFinal",{
+ title:"النشاط الإبداعي: ارسم رسالتك",
+ intro:"محطة أخيرة للإبداع: يرسم التلميذ رسالة أو بطلًا صحيًا يدعم زميله المصاب بالسكري.",
+ goal:"أن يعبّر التلميذ بالرسم عن رسالة داعمة ومعلومة صحيحة تعلّمها عن السكري.",
+ time:"8 إلى 10 دقائق",
+ tool:"لوحة التلميذ ومناقشة قصيرة معه عن رسالته.",
+ teacher:["يعرض أفكار الرسم.","يطلب من التلميذ شرح رسمه بجملة.","يشجع الرسائل الداعمة ويصحح المعلومة غير الدقيقة."],
+ student:["يختار فكرة ويرسمها.","يشرح رسالته لزملائه."],
+ success:["يرسم رسالة داعمة أو معلومة صحية صحيحة.","يشرح رسمه بجملة."],
+ start:"افتح لوحة الرسم ←",go:"guide"});
+/* ================= رسوم الصفحات ================= */
+
+function fillArt(){[].forEach.call(document.querySelectorAll("[data-art]"),function(e){if(!e.firstChild&&ART[e.dataset.art]){e.innerHTML=ART[e.dataset.art]();var s=e.querySelector("svg");if(s)s.setAttribute("preserveAspectRatio","xMidYMax slice");}});}
+
+fillArt();
+
+/* ================= التنقل ================= */
+
+var NAVMAP={home:"home",about:"about",sb:"story",story:"story",vb:"vr",vr:"vr",fb:"final",guide:"final",final:"final"};
+
+var VIEWS=["home","sb","story","vb","vr","fb","guide","final"];
+
+function go(v){
+
+  if(v==="about"||v==="wdd"){go("home");setTimeout(function(){$(v).scrollIntoView({behavior:"smooth"});},80);return;}
+
+  if(VIEWS.indexOf(v)<0)v="home";
+
+  VIEWS.forEach(function(n){$("v-"+n).classList.toggle("on",n===v);});
+
+  [].forEach.call(document.querySelectorAll("[data-nav]"),function(b){b.classList.toggle("on",b.dataset.nav===NAVMAP[v]);});
+
+  $("sky").classList.toggle("compact",v!=="home");
+
+  if(v==="story")renderStory();
+
+  if(v==="vr"){showStation(vr.st);setTimeout(resize,60);}
+
+  if(v==="final")renderFinal();mascSet(NAVMAP[v]);
+
+  window.scrollTo(0,0);
+
+  if(location.hash!=="#"+v)history.replaceState(null,"","#"+v);
+
+}
+
+document.addEventListener("click",function(e){var t=e.target.closest("[data-go]");if(t){e.preventDefault();go(t.dataset.go);}});
+
+function mark(){mark.s=mark.s||{};[["story","bgStory"],["vr","bgVr"],["final","bgFinal"]].forEach(function(p){$(p[1]).classList.toggle("on",done[p[0]]);if(done[p[0]]&&!mark.s[p[0]]){mark.s[p[0]]=1;cheer("🏅 حصلتَ على شارة جديدة!");}});
+
+  $("ckStory").textContent=done.story?"✓":"";$("ckVr").textContent=done.vr?"✓":"";$("ckFinal").textContent=done.final?"✓":"";
+
+  $("pcStory").classList.toggle("finished",done.story);$("pcVr").classList.toggle("finished",done.vr);$("pcFinal").classList.toggle("finished",done.final);
+
+  $("rtStory").classList.toggle("done",done.story);$("rtVr").classList.toggle("done",done.vr);$("rtFinal").classList.toggle("done",done.final);
+
+}
+
+/* شريط العرض في الرئيسية */
+
+var bi=0,slides=[].slice.call(document.querySelectorAll(".slide")),bt=null;
+
+$("bDots").innerHTML=slides.map(function(_,i){return '<button aria-label="الشريحة '+(i+1)+'" data-b="'+i+'"></button>';}).join("");
+
+function showB(i){bi=(i+slides.length)%slides.length;slides.forEach(function(s,k){s.classList.toggle("on",k===bi);});[].forEach.call($("bDots").children,function(d,k){d.classList.toggle("on",k===bi);});}
+
+$("bNext").onclick=function(){showB(bi+1);};$("bPrev").onclick=function(){showB(bi-1);};
+
+$("bDots").onclick=function(e){var b=e.target.closest("[data-b]");if(b)showB(+b.dataset.b);};
+
+function autoB(){clearInterval(bt);bt=setInterval(function(){if($("v-home").classList.contains("on"))showB(bi+1);},6500);}
+
+$("banner").addEventListener("pointerenter",function(){clearInterval(bt);});$("banner").addEventListener("pointerleave",autoB);
+
+showB(0);autoB();
+
+/* ================= القصة المصوّرة ================= */
+
+var SPK={"أحمد":"#2f6fe0","سالم":"#19b58a","ياسر":"#e5483d","المعلم سامي":"#7b3fd1","الأب":"#5b86c9","عمر":"#e08a00"};
+
+var SC=[
+
+ {t:"غلاف القصة: فريق الأبطال الصغار",art:"cover",
+  txt:"في مدرسة النجوم الابتدائية، يعيش ثلاثة أصدقاء من الصف الثالث، ولكل واحد منهم قوة خارقة خاصة: أحمد «البطل الأزرق» وقوته الالتزام بخطته الصحية، وسالم «بطل اللطف» الذي يسأل باحترام، وياسر «بطل الانتباه» الذي يلاحظ ويخبر الكبار. ومهمتهم أن يكونوا أصدقاء داعمين لكل زميل. هيا نتابع المهمات الخمس!",
+  dlg:[["أحمد","قوتي أن أعتني بنفسي وأتبع خطتي الصحية. وقوة فريقنا أن نتعاون!"],["سالم","ومعي درع اللطف: لا نسخر من أحد."],["ياسر","ومعي نظارة الانتباه: سأخبر المعلم إذا احتاج أحد المساعدة!"]]},
+
+ {t:"سر الطاقة: الجلوكوز ومفتاح الإنسولين",art:"fuel",
+  txt:"قبل أن تبدأ المهمات، جمع ياسر زملاءه ليشرح لهم سر الطاقة. جسمنا مثل مركبة الأبطال: يحتاج وقودًا! نأكل الطعام فيتحول جزء منه إلى سكر اسمه «الجلوكوز» يسير في الدم. وفي أجسامنا مفتاح صغير اسمه «الإنسولين» يفتح أبواب الخلايا ليدخل الجلوكوز ويعطينا الطاقة.",
+  dlg:[["ياسر","السكري حالة صحية لا يعمل فيها المفتاح كما ينبغي: فقد لا يصنع الجسم ما يكفي من الإنسولين، أو لا يستفيد منه جيدًا."],["أحمد","فيبقى الجلوكوز كثيرًا في الدم ولا يصل إلى الخلايا. لذلك أتبع خطتي الصحية مع طبيبي، وقد أحتاج إلى الإنسولين."],["سالم","وهل هو مرض معدٍ؟ ... لا! لا ينتقل باللمس ولا باللعب."]],
+  fact:{h:"هل تعلم؟",t:"السكري حالة صحية طويلة الأمد، وليس سببها أكل الحلويات وحدها. ويستطيع الأطفال المصابون به اللعب والتعلّم والنجاح مع اتباع خطتهم الصحية."},
+  q:"ماذا يفعل مفتاح الإنسولين؟",
+  o:[{i:"🤧",t:"يحمي الجسم من الزكام.",why:"لا علاقة للإنسولين بالزكام؛ عمله مع الجلوكوز. فكّر من جديد."},
+     {i:"🔑",t:"يساعد الجلوكوز على دخول الخلايا لتعطينا الطاقة.",ok:1,why:"أحسنت يا بطل! الإنسولين مفتاح يفتح باب الخلية ليدخل الجلوكوز."},
+     {i:"🦠",t:"ينقل السكري إلى الأصدقاء.",why:"السكري غير معدٍ، ولا ينتقل من شخص إلى آخر."}],
+  after:"ابتسم الأبطال وقالوا: «الآن عرفنا سر الطاقة!»"},
+
+ {t:"علامات يجب أن ننتبه لها",art:"symptoms",
+  txt:"لاحظ ياسر، بطل الانتباه، أن الجسم يرسل إشارات عندما يرتفع السكر في الدم، ومنها: عطش شديد، وكثرة التبول، وتعب وخمول، وجوع شديد، ورؤية غير واضحة، وتغيّر في الوزن.",
+  dlg:[["ياسر","إذا رأينا هذه العلامات على أي طفل، فلا نخمّن المرض ولا نعالجه بأنفسنا!"],["أحمد","بل نخبر شخصًا بالغًا، والطبيب هو من يفحص ويشخّص."]],
+  fact:{h:"مهم جدًا",t:"قد تظهر هذه العلامات لأسباب أخرى أيضًا، والتشخيص يقرره الطبيب بفحص بسيط. والاكتشاف المبكر يحمي الصحة."},
+  q:"ما التصرف الصحيح إذا لاحظنا هذه العلامات على زميل؟",
+  o:[{i:"🩺",t:"نقرر أنه مصاب بالسكري ونعالجه بأنفسنا.",why:"لا نشخّص ولا نعالج؛ فهذا عمل الطبيب. فكّر من جديد."},
+     {i:"😶",t:"نتجاهل الأمر ونكمل اللعب.",why:"التجاهل قد يؤخر المساعدة. الأفضل أن نخبر شخصًا بالغًا."},
+     {i:"🙋",t:"نخبر المعلم أو شخصًا بالغًا، والطبيب هو من يشخّص.",ok:1,why:"رائع! إخبار البالغ المسؤول هو أول خطوة صحيحة."}],
+  after:"أخذ الأبطال دفتر الملاحظات وكتبوا: «نلاحظ بلطف، ونخبر الكبار»."},
+
+ {t:"صباح الأبطال",art:"gate",
+  txt:"في صباح جميل بمدرسة النجوم، ارتدى أحمد زيّه المدرسي، وحمل حقيبته الصفراء، وتحت قميصه زيّ البطل الأزرق. أحمد في الصف الثالث، يحب كرة القدم والرسم، وهو مصاب بالسكري. تناول فطورًا مناسبًا وفق خطته، وعند باب المدرسة ودّعه أبوه.",
+  dlg:[["الأب","لا تنسَ خطتك الصحية يا أحمد، وإذا احتجتَ إلى شيء فأخبر معلمك."],["أحمد","لن أنسى يا أبي، وسأخبره. إلى اللقاء!"]],
+  fact:{h:"هل تعلم؟ خطة كل بطل",t:"يتبع بعض الأطفال المصابين بالسكري خطة صحية تشمل الغذاء والنشاط ومتابعة مستوى السكر، وقد تشمل دواءً أو الإنسولين بإرشاد الطبيب. والخطة تختلف من طفل لآخر."}},
+
+ {t:"المهمة 1: غيمة الشائعات",art:"rumor",
+  txt:"دخل أحمد الصف فرحّب به المعلم سامي. وفي حصة التعارف، شرح أحمد بهدوء أنه مصاب بالسكري ويتبع خطة صحية يضعها طبيبه مع أسرته. فظهرت فوق الصف «غيمة الشائعات» الرمادية، وتساءل بعض التلاميذ.",
+  dlg:[["سالم","هل السكري ينتقل بالعدوى يا أحمد؟ هل نبتعد عنك؟"]],
+  q:"ماذا نقول لسالم؟",
+  o:[{i:"🙅",t:"«نعم، فلنبتعد عن أحمد».",why:"السكري غير معدٍ، فلا ينتقل باللمس أو اللعب أو الجلوس بجانب أحمد. فكّر مرة أخرى."},
+     {i:"🤝",t:"«لا، السكري غير معدٍ، ونستطيع اللعب مع أحمد باحترام».",ok:1,why:"صحيح! السكري غير معدٍ، ونعامل أحمد باحترام كأي صديق."},
+     {i:"🤐",t:"«لا تسأل، فهذا ليس مهمًا».",why:"السؤال بأدب يساعدنا على الفهم. الأفضل أن نتعلم المعلومة الصحيحة."}],
+  after:"ابتسم أحمد وقال: «شكرًا لأنكم فهمتم!». فتبخّرت غيمة الشائعات، وجلس سالم بجانبه، وبدأ الجميع يرسمون معًا."},
+
+ {t:"المهمة 2: لغز الوجبات",art:"cafe",
+  txt:"في الاستراحة، تحدّث الأبطال عن وجباتهم. أحضر سالم خضراوات وخبزًا، وأحضر ياسر بيضًا وتفاحة، وأحضر أحمد وجبته التي جهّزتها أسرته له.",
+  dlg:[["سالم","معي خضراوات وخبز، وأحب الماء."],["ياسر","ومعي بيض وتفاحة!"],["أحمد","ووجبتي جهّزها أبي حسب خطتي الصحية."]],
+  fact:{h:"هل تعلم؟",t:"الوجبة المتوازنة تجمع الحبوب والبروتين والخضراوات والفاكهة والألبان. وليس لكل الأطفال المصابين بالسكري الخطة نفسها."},
+  q:"ما الفكرة الصحيحة عن الطعام؟",
+  o:[{i:"🚫",t:"نقول إن أحمد ممنوع من كل الحلويات دائمًا.",why:"ليس كل طفل مصاب بالسكري ممنوعًا من كل الحلويات؛ فالخطة تختلف من طفل لآخر. فكّر من جديد."},
+     {i:"🍬",t:"نعطي أحمد من طعامنا دون أن نسأل.",why:"قد لا يناسب طعامنا خطة أحمد الصحية، لذلك نترك له ولأسرته القرار."},
+     {i:"🥗",t:"كل طفل يختار أطعمة متنوعة، وأحمد يأكل وفق خطته الصحية.",ok:1,why:"أحسنت! الغذاء المتنوع مهم للجميع، واحتياجات أحمد تحددها خطته الصحية."}],
+  after:"تبادل الأبطال الحديث عن الأطعمة التي يحبونها، وأكل أحمد وجبته مبتسمًا."},
+
+ {t:"المهمة 3: سر الخطة الصحية",art:"office",
+  txt:"بعد الاستراحة، ذهب أحمد إلى المعلم سامي في الوقت المتفق عليه ليتابع خطوات خطته. كان المعلم يعرف الخطة ويساعده. رآه ياسر، فاقترب بفضول.",
+  dlg:[["ياسر","إلى أين تذهب يا أحمد؟ هل أقرر لك ماذا تفعل؟"]],
+  q:"ماذا نفعل كأصدقاء؟",
+  o:[{i:"😆",t:"نضحك ونسأل أسئلة محرجة.",why:"الأسئلة المحرجة قد تؤذي مشاعر أحمد. نحن نحترم خصوصيته."},
+     {i:"👑",t:"نقرر نحن ما يفعله بدلًا من أسرته ومعلمه.",why:"القرارات الصحية ليست من شأننا؛ فهي لأحمد وأسرته والبالغين المسؤولين."},
+     {i:"💙",t:"نحترم خطته، ونتركه يتابعها مع البالغين المسؤولين.",ok:1,why:"رائع! الاحترام وترك القرارات الصحية للبالغين المسؤولين دعم حقيقي لأحمد."}],
+  after:"قال ياسر: «حسنًا، سأنتظرك لنلعب معًا». وعاد أحمد بعد قليل مبتسمًا."},
+
+ {t:"المهمة 4: بطلنا يشعر بالتعب",art:"unwell",
+  txt:"أثناء اللعب، توقف أحمد فجأة وجلس على المقعد. قال بصوت منخفض: «أشعر بدوخة وتعب». نظر ياسر إلى وجهه، وتذكّر قوته الخاصة: الانتباه!",
+  dlg:[["أحمد","أشعر بدوخة وتعب… لست بخير."]],
+  fact:{h:"هل تعلم؟",t:"قد يشعر الطفل أحيانًا بدوخة أو تعب أو رجفة أو تعرّق. ولا نعرف نحن السبب أو العلاج المناسب، لذلك يتصرف البالغ المسؤول وفق خطة الطفل الصحية."},
+  q:"ماذا يفعل ياسر؟",
+  o:[{i:"💊",t:"يعطي أحمد عصيرًا أو دواءً من حقيبته.",why:"لا نعطي زميلنا طعامًا أو دواءً من عندنا؛ فالتصرف المناسب يحدده البالغون وفق خطته المعتمدة."},
+     {i:"🏃",t:"يطلب من أحمد أن يتحمل ويكمل اللعب.",why:"إذا شعر زميلك بالتوعك فلا نتجاهل ذلك. نخبر شخصًا بالغًا."},
+     {i:"🙋",t:"يخبر المعلم فورًا، ويبقى قريبًا من أحمد بهدوء.",ok:1,why:"أحسنت! إبلاغ المعلم أو البالغ المسؤول أولًا، ثم اتباع الخطة الصحية المعتمدة."}],
+  after:"ركض ياسر إلى المعلم سامي وأخبره، فجاء بسرعة وساعد أحمد وفق خطته الصحية المعتمدة، وتحسّن شعوره بعد قليل. وقال المعلم: «أحسنت يا بطل الانتباه! تصرفك صحيح»."},
+
+ {t:"المهمة 5: كلمات تؤذي",art:"bully",
+  txt:"وفي نهاية اليوم، سمع سالم زميلًا اسمه عمر يسخر من أحمد ويضحك عليه.",
+  dlg:[["عمر","أحمد مختلف! لا أريد اللعب معه!"]],
+  fact:{h:"هل تعلم؟",t:"السخرية من مرض زميلنا تؤذي مشاعره، وقد تجعله يخجل من خطته الصحية أو يخفي تعبه. وكل طفل يستحق الاحترام."},
+  q:"ماذا نفعل؟",
+  o:[{i:"😂",t:"نضحك مع الطفل حتى لا يغضب.",why:"الضحك يشجع على السخرية ويؤذي أحمد. فكّر من جديد."},
+     {i:"🙈",t:"نتجاهل الأمر.",why:"التجاهل لا يساعد أحمد. نستطيع أن نكون شجعانًا بلطف."},
+     {i:"🛡️",t:"نقول بلطف: «لا نسخر من أحد»، ونخبر المعلم إن استمر ذلك.",ok:1,why:"رائع! الاحترام والتعاون يمنعان التنمر، ونطلب مساعدة البالغين عند الحاجة."}],
+  after:"رفع سالم درع اللطف وقال بلطف: «لا نسخر من أحد». فخجل عمر واعتذر لأحمد، وتذكّر سالم أنه لو استمر الأمر فسيخبر المعلم. وانضم عمر إلى الفريق."},
+
+ {t:"النهاية: يوم الأبطال الأزرق",art:"end",
+  txt:"اقترب يوم 14 نوفمبر، وهو اليوم العالمي للسكري الذي يتذكّر فيه العالم كل عام أن نتعلم عن السكري وندعم الأصدقاء. ارتدى أبطال مدرسة النجوم اللون الأزرق ورسموا الدائرة الزرقاء، رمز التوعية، ووقف عمر ورنا مع الفريق. وأعلن الأبطال أن المهمات الخمس قد نُجزت!",
+  dlg:[["أحمد","هذا أجمل يوم في مدرستي!"],["سالم","لأننا تعاونّا واحترمنا بعضنا."],["عمر","وأنا تعلّمت أن الكلمات اللطيفة أقوى من السخرية."],["ياسر","وسنبقى فريقًا واحدًا."]],
+  fact:{h:"هل تعلم؟ لماذا 14 نوفمبر؟",t:"لأنه يوم ميلاد العالم فريدريك بانتنغ الذي ساهم في اكتشاف الإنسولين. وقد بدأت منظمات صحية عالمية هذا الاحتفال عام 1991، واعترفت به الأمم المتحدة عام 2006، ورمزه الدائرة الزرقاء."}}
+
+];
+
+var CLOSE_STORY=[{i:"🙅",t:"السكري مرض معدٍ ينتقل باللمس.",why:"السكري غير معدٍ. جرّب مرة أخرى."},
+ {i:"💙",t:"السكري غير معدٍ، ونحترم زميلنا ونخبر المعلم إذا شعر بالتوعك.",ok:1,why:"صحيح! هذه هي الرسالة الأهم في القصة."},
+ {i:"💊",t:"نعطي زميلنا الدواء بأنفسنا عندما يتعب.",why:"لا نعطي دواءً من أنفسنا، بل نخبر البالغ المسؤول."}];
+
+
+var story={i:0,a:SC.map(function(){return {};}),close:{},reflect:""};
+
+function fresh(){story={i:0,a:SC.map(function(){return {};}),close:{},reflect:""};}
+
+function renderStory(){
+
+  var b=$("stBody"),n=SC.length;
+
+  if(story.i>=n){return renderStorySummary();}
+
+  var s=SC[story.i],a=story.a[story.i],hasQ=!!s.q;
+
+  $("stCount").textContent="الصفحة "+(story.i+1)+" من "+n;
+
+  function bar(){$("stBar").style.width=((story.i+(hasQ?(a.done?1:0):1))/(n+1)*100)+"%";}bar();
+
+  var html=ART[s.art]()+'<div class="sbody"><h3></h3><p class="txt"></p>';
+
+  if(s.dlg)html+='<div class="dlg">'+s.dlg.map(function(d){return '<div class="bub" style="border-right-color:'+(SPK[d[0]]||"#1e63e9")+'"><b style="color:'+(SPK[d[0]]||"#1e63e9")+'">'+d[0]+':</b><span>'+d[1].replace(/</g,"&lt;")+'</span></div>';}).join("")+'</div>';
+
+  if(s.fact)html+='<div class="factbox"><b>💡 '+s.fact.h+'</b>'+s.fact.t+'</div>';
+
+  html+='<div id="stQ"></div><div class="after" id="stAfter"></div><div class="nav2"><span><button class="btn line" id="stPrev">→ السابق</button> <button class="btn small line" id="stSpeak">🔊 اقرأ لي</button></span><button class="btn" id="stNext">التالي ←</button></div></div>';
+
+  b.innerHTML=html;
+
+  b.querySelector("h3").textContent=s.t;b.querySelector(".txt").textContent=s.txt;
+
+  var nx=$("stNext");nx.disabled=hasQ&&!a.done;
+
+  nx.textContent=story.i===n-1?"الملخص والسؤال الختامي ←":"التالي ←";
+
+  $("stPrev").disabled=story.i===0;$("stPrev").style.opacity=story.i===0?.4:1;
+
+  function showAfter(){if(s.after&&a.done){$("stAfter").textContent="📖 "+s.after;$("stAfter").classList.add("show");}}
+
+  if(hasQ){mcq($("stQ"),a,s.q,s.o,function(){nx.disabled=!a.done;bar();showAfter();});showAfter();}
+
+  if(!window.speechSynthesis)$("stSpeak").style.display="none";
+
+  $("stSpeak").onclick=function(){speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(s.t+". "+s.txt);u.lang="ar-SA";u.rate=.85;speechSynthesis.speak(u);};
+
+  $("stPrev").onclick=function(){if(window.speechSynthesis)speechSynthesis.cancel();if(story.i>0){story.i--;renderStory();}};
+
+  nx.onclick=function(){if(window.speechSynthesis)speechSynthesis.cancel();story.i++;renderStory();window.scrollTo(0,0);};
+
+}
+
+function renderStorySummary(){
+
+  var qn=SC.filter(function(x){return x.q;}).length,ok=story.a.filter(function(x){return x.first;}).length;
+
+  $("stCount").textContent="الملخص";$("stBar").style.width="94%";
+
+  var b=$("stBody");
+
+  b.innerHTML=ART.end()+'<div class="sbody"><h3>🏅 أنجزتم المهمات الخمس!</h3><p class="txt">فريق الأبطال الصغار يعرف الآن كيف يكون صديقًا داعمًا. 💙</p>'+
+
+  '<p class="q">أهم الرسائل الصحية</p><ul class="list"><li>السكري غير معدٍ، ويمكن اللعب مع أحمد باحترام.</li><li>احتياجات كل طفل تختلف بحسب خطته الصحية.</li><li>لا نقرر الجرعات ولا نعالج زملاءنا بأنفسنا.</li><li>إذا شعر زميلنا بالتوعك، نخبر المعلم أو البالغ المسؤول فورًا.</li><li>ننتبه لعلامات التعب، ولا نشخّص زملاءنا، ونخبر شخصًا بالغًا.</li><li>لا نسخر من أحد، ونتعاون.</li></ul>'+
+
+  '<div class="note">أجبتَ عن <b>'+ok+' من '+qn+'</b> مهمات من المحاولة الأولى. المحاولة الثانية تعلّم أيضًا!</div>'+
+
+  '<div id="clQ"></div><p class="q">فسّر اختيارك: لماذا نخبر المعلم ولا نعالج زميلنا بأنفسنا؟</p><textarea id="refl" placeholder="اكتب أو قل إجابتك للمعلم...">'+story.reflect.replace(/</g,"&lt;")+'</textarea>'+
+
+  '<div class="nav2"><span><button class="btn line" id="stBack">→ السابق</button> <button class="btn line" id="stAgain">أعد القصة</button></span><button class="btn" id="stGo360" disabled>انتقل إلى لعبة 360° ←</button></div></div>';
+
+  mcq($("clQ"),story.close,"سؤال ختامي: أي جملة صحيحة؟",CLOSE_STORY,function(st){$("stGo360").disabled=!st.done;if(st.done){done.story=true;mark();}});
+
+  $("stGo360").disabled=!story.close.done;
+
+  $("refl").oninput=function(){story.reflect=this.value;};
+
+  $("stBack").onclick=function(){story.i=SC.length-1;renderStory();};
+
+  $("stAgain").onclick=function(){fresh();renderStory();window.scrollTo(0,0);};
+
+  $("stGo360").onclick=function(){go("vb");};
+
+}
+
+/* ================= لعبة 360° ================= */
+
+var ITEMS=[
+
+ {n:"الكعك والحلويات",e:"🍰",g:"سكريات",bad:1,info:"الحلويات والكعك فيها سكر كثير يرفع السكر في الدم بسرعة. لا تناسب غالبًا وجبة الطفل المصاب بالسكري إلا بحسب خطته الصحية، ونحن لا نقرر عنه.",
+  q:"أحمد يحب الكعك، ونريد أن نعطيه قطعة. ماذا يفعل البطل الداعم؟",
+  o:[{t:"يعطيه قطعة بسرعة دون أن يسأل أحدًا.",why:"قد لا تناسب القطعة خطة أحمد الصحية، ولا نقرر نحن عنه. فكّر من جديد."},
+     {t:"يسأل أحمد، ويترك القرار له ولأسرته.",ok:1,why:"أحسنت يا بطل! خطة كل طفل تختلف، فنحترم قرار أحمد وأسرته."},
+     {t:"يخبّئ القطعة في حقيبة أحمد.",why:"لا نعطي زميلنا طعامًا دون علمه؛ فقد لا يناسبه."}]},
+
+ {n:"البيض",e:"🥚",g:"بروتين",info:"البيض مصدر للبروتين الذي يساعد الجسم على النمو وبناء العضلات.",
+  q:"ماذا يعطي البيض لجسمنا؟",
+  o:[{t:"سكرًا مضافًا كثيرًا.",why:"البيض مصدر للبروتين، وليس فيه سكر مضاف."},
+     {t:"ماءً فقط.",why:"البيض ليس ماءً؛ هو غنيّ بالبروتين."},
+     {t:"بروتينًا يساعدنا على النمو.",ok:1,why:"رائع! البروتين يبني العضلات ويساعدنا على النمو."}]},
+
+ {n:"الخضراوات",e:"🥦",g:"خضراوات",info:"الخضراوات فيها فيتامينات وألياف. ومن الجميل أن تكون في وجبتنا بألوان مختلفة.",
+  q:"لماذا نضع الخضراوات بألوان مختلفة في وجبتنا؟",
+  o:[{t:"لأن فيها فيتامينات وألياف مفيدة.",ok:1,why:"أحسنت! الألوان المختلفة تعني فوائد مختلفة لجسمنا."},
+     {t:"لأنها تُصنع من السكر.",why:"الخضراوات تنمو في الأرض وفيها ألياف وفيتامينات."},
+     {t:"لأنها لا تفيد الجسم.",why:"بل تفيد الجسم كثيرًا وتساعده على البقاء قويًا."}]},
+
+ {n:"التفاح",e:"🍎",g:"فاكهة",info:"الفاكهة فيها فيتامينات وألياف. نتناولها ضمن وجبة متنوعة.",
+  q:"كيف نتناول الفاكهة مثل التفاح؟",
+  o:[{t:"بدل كل الأطعمة الأخرى.",why:"الجسم يحتاج مجموعات غذائية مختلفة، لا فاكهة فقط."},
+     {t:"ضمن وجبة متنوعة مع أطعمة أخرى.",ok:1,why:"رائع! التنوع هو سر الوجبة المتوازنة."},
+     {t:"طوال اليوم دون توقف.",why:"الاعتدال والتنوع مهمان لكل الأطفال."}]},
+
+ {n:"الحليب",e:"🥛",g:"ألبان",info:"الحليب ومنتجات الألبان فيها الكالسيوم الذي يقوّي العظام.",
+  q:"ماذا يقوّي الكالسيوم الموجود في الحليب؟",
+  o:[{t:"الشعر فقط.",why:"الكالسيوم يقوّي العظام والأسنان، وليس الشعر فقط."},
+     {t:"الصوت فقط.",why:"الكالسيوم لا يقوّي الصوت؛ هو للعظام والأسنان."},
+     {t:"العظام والأسنان.",ok:1,why:"أحسنت يا بطل! الكالسيوم يجعل عظامنا وأسناننا قوية."}]},
+
+ {n:"رقائق البطاطس",e:"🍟",g:"وجبة خفيفة مالحة",bad:1,info:"الرقائق المقلية فيها دهون وملح كثير وقيمة غذائية قليلة. نقلل منها لجميع الأطفال، وهي ليست خيارًا جيدًا للوجبة الأساسية.",
+  q:"ماذا نعرف عن الرقائق المقلية؟",
+  o:[{t:"هي أفضل وجبة أساسية لكل بطل.",why:"ليست خيارًا جيدًا للوجبة الأساسية؛ فيها دهون وملح كثير."},
+     {t:"تغني عن الخضراوات والفاكهة.",why:"لا تغني عنها؛ فالخضراوات والفاكهة فيها فيتامينات وألياف."},
+     {t:"فيها دهون وملح كثير، فنقلل منها.",ok:1,why:"صحيح! نقلل من الرقائق المقلية لجميع الأطفال."}]},
+
+ {n:"الماء",e:"💧",g:"ماء",info:"الماء رفيقنا الدائم، وغالبًا هو الخيار المناسب للشرب.",
+  q:"ما الخيار المناسب غالبًا للشرب؟",
+  o:[{t:"الماء.",ok:1,why:"أحسنت! الماء رفيق الأبطال الدائم."},
+     {t:"مشروب غازي في كل مرة.",why:"المشروبات الغازية فيها سكر مضاف كثير."},
+     {t:"عصير محلّى كل ساعة.",why:"العصير المحلّى فيه سكر مضاف، والماء أفضل غالبًا."}]},
+
+ {n:"المشروب الغازي",e:"🥤",g:"مشروب محلّى",sweet:1,bad:1,info:"المشروبات الغازية والعصائر المحلّاة فيها سكر مضاف كثير، فيرتفع السكر بسرعة. الماء هو الأفضل غالبًا.",
+  q:"لماذا نقلل المشروبات الغازية؟",
+  o:[{t:"لأنها دائمًا باردة.",why:"ليست البرودة هي السبب؛ السبب كثرة السكر المضاف."},
+     {t:"لأنها تقوّي العظام.",why:"لا تقوّي العظام؛ الحليب أفضل لذلك."},
+     {t:"لأن فيها سكرًا مضافًا كثيرًا.",ok:1,why:"رائع! السكر المضاف الكثير يرفع السكر في الدم بسرعة."}]}
+
+];
+
+
+var vr,vrReset=function(){vr={st:1,found:{},q:ITEMS.map(function(){return {};}),tray:[],trayOk:false,trayFirst:null,trayTries:0,groups:0};};vrReset();
+
+/* --- رسم البانوراما (2048×1024، إسقاط متساوي المستطيلات) --- */
+
+var W=2048,H=1024,HZ=512,SP=256;
+
+var pano=document.createElement("canvas");pano.width=W;pano.height=H;var c=pano.getContext("2d");
+
+function rr(x,y,w,h,r,f){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();c.fillStyle=f;c.fill();}
+
+function ci(x,y,r,f){c.beginPath();c.arc(x,y,r,0,7);c.fillStyle=f;c.fill();}
+
+function el(x,y,rx,ry,f,rot){c.beginPath();c.ellipse(x,y,rx,ry,rot||0,0,7);c.fillStyle=f;c.fill();}
+
+function drawPano(){
+
+  var g=c.createLinearGradient(0,0,0,300);g.addColorStop(0,"#fff6dc");g.addColorStop(1,"#ffe9a8");c.fillStyle=g;c.fillRect(0,0,W,300);
+
+  for(var i=0;i<16;i++){rr(i*128+44,150,80,16,8,"#fff");}
+
+  var gw=c.createLinearGradient(0,260,0,650);gw.addColorStop(0,"#a9e6d6");gw.addColorStop(1,"#72d2bb");c.fillStyle=gw;c.fillRect(0,260,W,390);
+
+  c.fillStyle="#2f2a78";c.fillRect(0,260,W,10);
+
+  for(var k=0;k<=8;k++){var wx=k*SP;rr(wx-60,310,120,130,12,"#fff");rr(wx-50,320,100,110,8,"#bfe6ff");c.fillStyle="#fff";c.fillRect(wx-2,320,4,110);c.fillRect(wx-50,373,100,4);ci(wx+22,345,10,"#ffd24d");}
+
+  var cols=["#ff6b57","#ffc93c","#2f2a78","#1fb58f"];
+
+  for(var s=0;s<32;s++){c.fillStyle=cols[s%4];c.fillRect(s*64,570,64,12);}
+
+  for(var b=0;b<32;b++){c.fillStyle=cols[b%4];c.beginPath();c.moveTo(b*64,282);c.lineTo(b*64+40,282);c.lineTo(b*64+20,316);c.fill();}
+
+  var gf=c.createLinearGradient(0,650,0,H);gf.addColorStop(0,"#f2c58a");gf.addColorStop(1,"#d9a066");c.fillStyle=gf;c.fillRect(0,650,W,H-650);
+
+  c.strokeStyle="rgba(120,70,20,.22)";c.lineWidth=3;
+
+  for(var f=0;f<=W;f+=128){c.beginPath();c.moveTo(f,650);c.lineTo(f,H);c.stroke();}
+
+  for(var r=0;r<5;r++){c.beginPath();c.moveTo(0,650+r*r*20+22);c.lineTo(W,650+r*r*20+22);c.stroke();}
+
+  for(var t=0;t<8;t++){var cx=128+SP*t;rr(cx-116,612,232,38,10,"#8a5a2b");rr(cx-116,612,232,12,10,"#b57a3d");c.fillStyle="#6e4520";c.fillRect(cx-96,650,20,130);c.fillRect(cx+76,650,20,130);el(cx,790,118,16,"rgba(0,0,0,.16)");}
+
+  var x;
+
+ x=128;rr(x-62,572,124,38,12,"#f7c6d9");rr(x-62,540,124,36,12,"#8a4b2b");ci(x-30,534,9,"#fff");ci(x,530,11,"#e5322d");ci(x+30,534,9,"#ffd24d");
+
+  x=384;rr(x-60,570,120,40,14,"#4aa3df");[-30,0,30].forEach(function(d){el(x+d,556,20,26,"#fff7e6");});
+
+  x=640;rr(x-62,550,124,60,12,"#b57a3d");ci(x-26,528,26,"#2fa34a");ci(x,516,30,"#3dbb58");ci(x+26,528,24,"#2fa34a");rr(x+30,512,16,50,8,"#ff8a1c");ci(x-34,558,16,"#e5322d");
+
+  x=896;ci(x-22,560,40,"#e5322d");ci(x+30,566,36,"#d12a25");c.strokeStyle="#6b3a1a";c.lineWidth=7;c.beginPath();c.moveTo(x-22,522);c.lineTo(x-18,500);c.stroke();el(x,512,24,10,"#2fb34a",-.5);
+
+  x=1152;rr(x-34,486,68,124,6,"#fff");rr(x-34,486,68,34,6,"#4aa3df");ci(x,560,18,"#4aa3df");rr(x+46,560,36,50,6,"rgba(255,255,255,.9)");rr(x+46,584,36,26,6,"#f4f0ff");
+
+ x=1408;rr(x-44,478,88,132,10,"#ffbf1f");rr(x-44,478,88,22,6,"#d99a00");ci(x,545,26,"#e5322d");c.fillStyle="#fff";c.fillRect(x-14,538,28,8);
+
+  x=1664;rr(x-26,478,52,132,18,"#58c4ff");rr(x-18,446,36,40,8,"#2a8fd0");rr(x-26,520,52,22,0,"rgba(255,255,255,.5)");ci(x+60,596,14,"#bfe6ff");
+
+ x=1920;rr(x-32,470,64,140,16,"#e5322d");rr(x-32,520,64,34,0,"#fff");rr(x-24,458,48,16,6,"#c9c9c9");c.strokeStyle="#fff";c.lineWidth=6;c.beginPath();c.moveTo(x-24,500);c.lineTo(x+24,500);c.stroke();
+
+}
+
+drawPano();
+
+/* --- العارض الكروي --- */
+
+var cv=$("gl"),stage=$("stage"),gl=null;
+
+try{gl=cv.getContext("webgl")||cv.getContext("experimental-webgl");}catch(e){gl=null;}
+
+var yaw=-2.55,pitch=-0.05,fov=1.6,FMIN=.55,FMAX=2.0,uRes,uYaw,uPitch,uFov;
+
+function mk(t,s){var o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);return o;}
+
+if(gl){
+
+  var vs="attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+
+  var fs="precision highp float;uniform vec2 res;uniform float yaw,pitch,fov;uniform sampler2D tex;"+
+
+  "void main(){vec2 q=(gl_FragCoord.xy-res*.5)/res.y;float f=.5/tan(fov*.5);vec3 d=normalize(vec3(q.x,q.y,f));"+
+
+  "float cp=cos(pitch),sp=sin(pitch);d=vec3(d.x,d.y*cp+d.z*sp,-d.y*sp+d.z*cp);"+
+
+  "float cy=cos(yaw),sy=sin(yaw);d=vec3(d.x*cy+d.z*sy,d.y,-d.x*sy+d.z*cy);"+
+
+  "float lon=atan(d.x,d.z);float lat=asin(clamp(d.y,-1.,1.));"+
+
+  "gl_FragColor=texture2D(tex,vec2(lon/6.2831853+.5,lat/3.1415926+.5));}";
+
+  var pr=gl.createProgram();gl.attachShader(pr,mk(gl.VERTEX_SHADER,vs));gl.attachShader(pr,mk(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);
+
+  if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){gl=null;}
+
+  else{
+
+    gl.useProgram(pr);var bf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,bf);
+
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+
+    var lc=gl.getAttribLocation(pr,"p");gl.enableVertexAttribArray(lc);gl.vertexAttribPointer(lc,2,gl.FLOAT,false,0,0);
+
+    var tx=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tx);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);
+
+    gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,pano);
+
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.REPEAT);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+
+    uRes=gl.getUniformLocation(pr,"res");uYaw=gl.getUniformLocation(pr,"yaw");uPitch=gl.getUniformLocation(pr,"pitch");uFov=gl.getUniformLocation(pr,"fov");
+
+  }
+
+}
+
+var cw=0,ch=0,hotsOn=true,LR=100;
+
+function resize(){
+
+  if(!stage||stage.offsetParent===null)return;
+
+  var r=stage.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);
+
+  cw=r.width;ch=r.height;cv.width=Math.max(1,Math.round(cw*dpr));cv.height=Math.max(1,Math.round(ch*dpr));
+
+  LR=Math.max(70,Math.min(cw,ch)*.24);$("lens").style.width=$("lens").style.height=(LR*2)+"px";
+
+  if(gl)gl.viewport(0,0,cv.width,cv.height);draw();
+
+}
+
+var hsEls=[],hsPos=ITEMS.map(function(_,i){var px=128+SP*i,py=548;return {yaw:(px/W)*Math.PI*2-Math.PI,pitch:-(py-HZ)/H*Math.PI};});
+
+ITEMS.forEach(function(it,i){
+
+  var b=document.createElement("button");b.type="button";b.className="hs";b.setAttribute("aria-label","اكتشف: "+it.n);
+
+  b.onclick=function(e){e.stopPropagation();openItem(i);};$("hots").appendChild(b);hsEls.push(b);
+
+});
+
+function placeHots(){
+
+  var f=.5/Math.tan(fov/2),cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
+
+  hsPos.forEach(function(h,i){
+
+    var e=hsEls[i];if(!hotsOn){e.style.display="none";return;}
+
+    var cl=Math.cos(h.pitch),x=cl*Math.sin(h.yaw),y=Math.sin(h.pitch),z=cl*Math.cos(h.yaw);
+
+    var x1=x*cy-z*sy,z1=x*sy+z*cy,y2=y*cp-z1*sp,z2=y*sp+z1*cp;
+
+    if(z2<=.05){e.style.display="none";return;}
+
+    var px=cw/2+x1/z2*f*ch,py=ch/2-y2/z2*f*ch;
+
+    if(px<-50||px>cw+50||py<-50||py>ch+50){e.style.display="none";return;}
+
+    var d=Math.hypot(px-cw/2,py-ch/2),inl=d<LR;
+
+    e.style.display="flex";e.style.opacity=inl||vr.found[i]?1:.4;e.classList.toggle("inlens",inl&&!vr.found[i]);
+
+    e.style.transform="translate("+px.toFixed(1)+"px,"+py.toFixed(1)+"px)"+(inl?" scale(1.2)":"");
+
+  });
+
+}
+
+function draw(){
+
+  if(gl){gl.uniform2f(uRes,cv.width,cv.height);gl.uniform1f(uYaw,yaw);gl.uniform1f(uPitch,pitch);gl.uniform1f(uFov,fov);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);}
+
+  placeHots();
+
+}
+
+var ptrs={},lastD=0;
+
+stage.addEventListener("pointerdown",function(e){if(e.target.closest("button"))return;stage.setPointerCapture(e.pointerId);ptrs[e.pointerId]={x:e.clientX,y:e.clientY};stage.classList.add("drag");lastD=0;$("hint").style.display="none";});
+
+stage.addEventListener("pointermove",function(e){
+
+  var p=ptrs[e.pointerId];if(!p)return;var ids=Object.keys(ptrs);
+
+  if(ids.length===1){var k=fov/ch;yaw-=(e.clientX-p.x)*k;pitch=Math.max(-1.3,Math.min(1.3,pitch+(e.clientY-p.y)*k));}
+
+  p.x=e.clientX;p.y=e.clientY;
+
+  if(ids.length===2){var a=ptrs[ids[0]],b=ptrs[ids[1]],d=Math.hypot(a.x-b.x,a.y-b.y);if(lastD)zoom(lastD/d);lastD=d;}
+
+  draw();
+
+});
+
+function endp(e){delete ptrs[e.pointerId];lastD=0;if(!Object.keys(ptrs).length)stage.classList.remove("drag");}
+
+stage.addEventListener("pointerup",endp);stage.addEventListener("pointercancel",endp);
+
+stage.addEventListener("wheel",function(e){e.preventDefault();zoom(e.deltaY>0?1.08:.92);draw();},{passive:false});
+
+function zoom(m){fov=Math.max(FMIN,Math.min(FMAX,fov*m));}
+
+$("zin").onclick=function(){zoom(.85);draw();};$("zout").onclick=function(){zoom(1.18);draw();};
+
+$("fs").onclick=function(){var s=$("stage");if(document.fullscreenElement){document.exitFullscreen();}else if(s.requestFullscreen){s.requestFullscreen();}else if(s.webkitRequestFullscreen){s.webkitRequestFullscreen();}else{alert("المتصفح لا يدعم ملء الشاشة هنا.");}};
+
+[].forEach.call(document.querySelectorAll(".dpad button"),function(b){b.onclick=function(){
+
+  var d=b.dataset.d,s=.4;if(d==="l")yaw-=s;if(d==="r")yaw+=s;if(d==="u")pitch=Math.min(1.3,pitch+s*.6);if(d==="d")pitch=Math.max(-1.3,pitch-s*.6);
+
+  if(d==="c"){yaw=-2.55;pitch=-.05;fov=1.6;}draw();};});
+
+window.addEventListener("resize",resize);window.addEventListener("orientationchange",function(){setTimeout(resize,250);});
+
+document.addEventListener("fullscreenchange",function(){setTimeout(resize,150);});
+
+document.addEventListener("keydown",function(e){if(!$("v-vr").classList.contains("on")||vr.st!==1||$("stage").offsetParent===null)return;
+
+  var s=.1;if(e.key==="ArrowLeft")yaw-=s;if(e.key==="ArrowRight")yaw+=s;if(e.key==="ArrowUp")pitch=Math.min(1.3,pitch+s);if(e.key==="ArrowDown")pitch=Math.max(-1.3,pitch-s);draw();});
+
+$("toggleHot").onclick=function(){hotsOn=!hotsOn;this.textContent=hotsOn?"إخفاء النقاط":"إظهار النقاط";draw();};
+
+var simpleMode=false;
+
+$("simple").innerHTML=ITEMS.map(function(it,i){return '<button class="item" data-i="'+i+'"><span>'+it.e+'</span>'+it.n+'</button>';}).join("");
+
+$("simple").onclick=function(e){var b=e.target.closest(".item");if(b)openItem(+b.dataset.i);};
+
+function setSimple(on){simpleMode=on;$("stage").style.display=on?"none":"block";$("simple").style.display=on?"grid":"none";
+
+  $("toggleSimple").textContent=on?"العودة إلى المشهد 360°":"العرض العادي (بديل مبسط)";$("toggleHot").style.display=on?"none":"";if(!on)setTimeout(resize,30);}
+
+$("toggleSimple").onclick=function(){setSimple(!simpleMode);};
+
+if(!gl){setSimple(true);$("toggleSimple").style.display="none";}
+
+function openItem(i){var it=ITEMS[i];$("mIcon").textContent=it.e;$("mName").textContent=it.n;$("mInfo").textContent=it.info;mcq($("mQ"),vr.q[i],it.q,it.o,function(){updateFound();});$("modal").classList.add("open");}
+
+$("mOk").onclick=function(){$("modal").classList.remove("open");};
+
+$("modal").onclick=function(e){if(e.target===$("modal"))$("modal").classList.remove("open");};
+
+function updateFound(){
+
+  vr.found={};vr.q.forEach(function(q,i){if(q.done)vr.found[i]=true;});var n=Object.keys(vr.found).length;$("foundN").textContent="الأنشطة المكتملة: "+n+" من "+ITEMS.length+" ⭐";var was=updateFound.all;updateFound.all=(n===ITEMS.length);if(updateFound.all&&!was&&vr.st===1)cheer("🏆 أكملتَ كل الأنشطة! انتقل إلى المحطة 2");
+
+  hsEls.forEach(function(b,i){b.classList.toggle("done",!!vr.found[i]);b.textContent=vr.found[i]?"✓":"";});
+
+  [].forEach.call($("simple").children,function(b,i){b.classList.toggle("done",!!vr.found[i]);});
+
+  $("to2").disabled=n<ITEMS.length;draw();
+
+}
+
+function showStation(n){
+
+  vr.st=n;["s1","s2","s3"].forEach(function(id,i){$(id).style.display=(i+1===n)?"block":"none";});
+
+  [].forEach.call($("stations").children,function(d,i){d.className=(i+1===n)?"on":(i+1<n?"ok":"");});
+
+  if(n===1){updateFound();setTimeout(resize,30);}
+
+  if(n===2)renderTray();if(n===3)renderVrEnd();
+
+  window.scrollTo(0,0);
+
+}
+
+$("to2").onclick=function(){showStation(2);};$("to3").onclick=function(){showStation(3);};
+
+/* محطة 2: الصحن */
+
+$("foods").innerHTML=ITEMS.map(function(it,i){return '<button class="food" data-i="'+i+'"><span>'+it.e+'</span>'+it.n+'<small>'+it.g+'</small></button>';}).join("");
+
+$("foods").onclick=function(e){var b=e.target.closest(".food");if(!b||vr.trayOk)return;var i=+b.dataset.i,k=vr.tray.indexOf(i);if(k>=0)vr.tray.splice(k,1);else vr.tray.push(i);$("trayFb").className="fb";renderTray();};
+
+function renderTray(){
+
+  [].forEach.call($("foods").children,function(b,i){b.classList.toggle("chosen",vr.tray.indexOf(i)>=0);});
+
+  $("tray").innerHTML=vr.tray.length?vr.tray.map(function(i){return "<span>"+ITEMS[i].e+" "+ITEMS[i].n+"</span>";}).join(""):'<span style="font-weight:500">الطبق فارغ</span>';
+
+  $("to3").disabled=!vr.trayOk;
+
+}
+
+$("chk").onclick=function(){
+
+  var fb=$("trayFb");
+
+  if(vr.tray.length<3){fb.className="fb bad";fb.textContent="💡 اختر ثلاثة أطعمة على الأقل لتكوين مثال أكثر تنوعًا.";return;}
+
+  vr.trayTries++;
+
+  var bads=vr.tray.filter(function(i){return ITEMS[i].bad;});if(bads.length){fb.className="fb bad";fb.textContent="🚫 انتبه! "+bads.map(function(i){return ITEMS[i].e+" "+ITEMS[i].n;}).join("، ")+" ليست خيارًا مناسبًا غالبًا لوجبة طفل مصاب بالسكري لأنها كثيرة السكر أو الدهون. أزلها واختر بدائل صحية مثل الخضراوات أو الفاكهة أو الماء.";[].forEach.call($("foods").children,function(b,i){b.classList.toggle("bad",bads.indexOf(i)>=0&&vr.tray.indexOf(i)>=0);});renderTray();return;}var gs={},sweet=false;vr.tray.forEach(function(i){var it=ITEMS[i];if(it.sweet)sweet=true;else gs[it.g]=1;});
+
+  var n=Object.keys(gs).length;
+
+  if(n>=3){
+
+    if(vr.trayFirst===null)vr.trayFirst=(vr.trayTries===1);vr.trayOk=true;vr.groups=n;
+
+    var m="🎉 أحسنت! اخترت وجبة متنوعة من "+n+" مجموعات غذائية مختلفة. ناقش مع المعلم كيف تتناسب الوجبة مع احتياجات كل طفل.";
+
+    if(sweet)m+=" تذكّر أن العصير المحلّى فيه سكر مضاف، لذلك نتناوله باعتدال وبحسب خطة كل طفل، دون أن نقول إنه «ممنوع» للجميع.";
+
+    fb.className="fb good";fb.textContent=m;
+
+    [].forEach.call($("foods").children,function(b,i){if(vr.tray.indexOf(i)>=0)b.classList.add("good");});
+
+  }else{
+
+    if(vr.trayFirst===null)vr.trayFirst=false;
+
+    fb.className="fb bad";fb.textContent="💡 محاولة جيدة! جرّب إضافة أطعمة من مجموعات مختلفة (مثل الحبوب والبروتين والخضراوات والفاكهة والألبان) لزيادة التنوع.";
+
+  }
+
+  renderTray();
+
+};
+
+$("retryTray").onclick=function(){vr.tray=[];vr.trayOk=false;$("trayFb").className="fb";[].forEach.call($("foods").children,function(b){b.classList.remove("good");});renderTray();};
+
+function renderVrEnd(){
+
+  var n=Object.keys(vr.found).length;
+
+  $("vrScore").textContent=n+" / "+ITEMS.length;
+
+  $("vrMsg").textContent="أنجزتَ "+n+" أنشطة، وكوّنتَ وجبة من "+vr.groups+" مجموعات غذائية. "+(vr.trayFirst?"من المحاولة الأولى! 🌟":"والمحاولة الثانية تعلّم أيضًا! 💙");
+
+  done.vr=true;mark();
+
+}
+
+$("vrAgain").onclick=function(){vrReset();[].forEach.call(document.querySelectorAll("#s3 input"),function(i){i.checked=false;});$("trayFb").className="fb";[].forEach.call($("foods").children,function(b){b.classList.remove("good");});showStation(1);};
+
+/* ================= التقويم الختامي (6 أسئلة مصوّرة) ================= */
+
+var FQ=[
+
+ {art:"unwell",q:"موقف 1: أثناء الاستراحة، شعر أحمد بالتوعك. ماذا تفعل؟",o:[
+
+  {i:"💊",t:"أعطيه عصيرًا أو دواءً من حقيبتي.",why:"لا نعطي زميلنا طعامًا أو دواءً من عندنا. فالتصرف المناسب يحدده البالغ المسؤول وفق الخطة المعتمدة."},
+
+  {i:"🙋",t:"أخبر المعلم أو البالغ المسؤول فورًا.",ok:1,why:"أحسنت! نخبر المعلم أو البالغ المسؤول ليتبع خطة أحمد الصحية المعتمدة."},
+
+  {i:"🏃",t:"أطلب منه أن يتحمل ويكمل اللعب.",why:"لا نتجاهل شعور زميلنا بالتوعك. نخبر شخصًا بالغًا فورًا."}]},
+
+ {art:"office",q:"موقف 2: طلب منك أحمد أن تساعده لأنه يحتاج إلى اتباع خطته الصحية. كيف تتصرف؟",o:[
+
+  {i:"👑",t:"أقرر له ماذا يأكل وماذا يفعل.",why:"القرارات الصحية ليست لنا، بل لأحمد وأسرته والبالغين المسؤولين."},
+
+  {i:"💙",t:"أحترم خطته، وأرافقه إلى المعلم أو الممرضة إن احتاج إلى ذلك.",ok:1,why:"رائع! الاحترام والمرافقة إلى البالغ المسؤول دعم حقيقي دون تدخّل في العلاج."},
+
+  {i:"🙅",t:"أقول له: لا داعي لاتباع الخطة.",why:"الخطة الصحية مهمة لأحمد. نشجعه على اتباعها مع البالغين."}]},
+
+ {art:"classroom",q:"موقف 3: قال أحد التلاميذ: «السكري مرض معدٍ، فلنبتعد عن أحمد!» ماذا توضح له؟",o:[
+
+  {i:"👍",t:"أوافقه حتى لا نختلف.",why:"المعلومة غير صحيحة. من الأفضل أن نوضح بلطف."},
+
+  {i:"😂",t:"أضحك عليه وأقول إنه لا يعرف شيئًا.",why:"لا نسخر من أحد حتى لو أخطأ. نشرح له بلطف."},
+
+  {i:"🤝",t:"أوضح بهدوء أن السكري غير معدٍ، ويمكننا اللعب مع أحمد.",ok:1,why:"أحسنت! المعلومة الصحيحة تنشر الاحترام وتمنع الخوف غير المبرر."}]},
+
+ {art:"bully",q:"موقف 4: سخر زميل من أحمد وقال كلامًا مؤذيًا. ماذا نفعل؟",o:[
+
+  {i:"🛡️",t:"نقول بلطف: «لا نسخر من أحد»، ونخبر المعلم إن استمر ذلك.",ok:1,why:"رائع! الاحترام والتعاون يمنعان التنمر، ونطلب مساعدة البالغين عند الحاجة."},
+
+  {i:"😂",t:"نضحك معه حتى لا يغضب.",why:"الضحك يشجع على السخرية ويؤذي أحمد."},
+
+  {i:"🙈",t:"نتجاهل الأمر.",why:"التجاهل لا يساعد أحمد. نستطيع أن نتصرف بلطف وشجاعة."}]},
+
+ {art:"gate",q:"سؤال 5: ماذا نعرف عن مرض السكري؟",o:[
+
+  {i:"🦠",t:"مرض معدٍ ينتقل باللعب.",why:"السكري غير معدٍ."},
+
+  {i:"🏫",t:"مرض غير معدٍ، ويمكن للطفل المصاب المشاركة في أنشطة المدرسة.",ok:1,why:"صحيح! السكري غير معدٍ، ونحترم زميلنا ونشاركه اللعب."},
+
+  {i:"🤧",t:"ينتقل بالعطس.",why:"السكري لا ينتقل بالعطس ولا باللمس."}]},
+
+ {art:"cafe",q:"سؤال 6: ماذا نقول عن الطعام والأطفال المصابين بالسكري؟",o:[
+
+  {i:"🍽️",t:"كلهم يأكلون الطعام نفسه.",why:"احتياجات الأطفال تختلف بحسب خطة كل طفل."},
+
+  {i:"🚫",t:"كلهم ممنوعون من كل الحلويات دائمًا.",why:"هذه فكرة غير دقيقة؛ فالخطة تختلف من طفل لآخر."},
+
+  {i:"📋",t:"لا توجد قائمة واحدة تناسب الجميع؛ لكل طفل خطته الصحية.",ok:1,why:"أحسنت! الخطة الصحية لكل طفل تحدد احتياجاته."}]}
+
+];
+
+var fin={i:0,a:FQ.map(function(){return {};})};
+
+function renderFinal(){
+
+  var b=$("fnBody"),n=FQ.length;
+
+  if(fin.i>=n){
+
+    var ok=fin.a.filter(function(x){return x.first;}).length;done.final=true;mark();$("fnCount").textContent="النتيجة";$("fnBar").style.width="100%";
+
+    b.innerHTML=ART.end()+'<div class="sbody"><div class="badge">🏅</div><h3 style="text-align:center">شارة «البطل الصديق الداعم»</h3><div class="res">'+ok+' / '+n+'</div><p class="txt" style="text-align:center">'+(ok>=5?"ممتاز! فهمتَ الرسائل الصحية، وأصبحتَ صديقًا داعمًا.":ok>=3?"أحسنت! تعلّمتَ الكثير، ويمكنك إعادة التقويم للتدرب أكثر.":"بداية رائعة! كل محاولة تساعدنا على التعلم، فأعد التقويم وجرّب من جديد.")+'</p>'+
+
+    '<ul class="list"><li>السكري غير معدٍ، ونحترم زميلنا.</li><li>نخبر المعلم أو البالغ المسؤول عند توعك زميلنا.</li><li>لكل طفل خطة صحية، ولا نعالج زملاءنا بأنفسنا.</li></ul>'+
+
+    '<h3>قائمة ملاحظة المعلم (3 معايير)</h3><div class="check noprint"><label><input type="checkbox"> يختار التلميذ أطعمة متنوعة</label><label><input type="checkbox"> يفسّر اختياره تفسيرًا بسيطًا</label><label><input type="checkbox"> يحدد التصرف الصحيح في المواقف الصحية</label></div>'+
+
+    '<div class="nav2"><span><button class="btn line" data-go="guide">→ الدليل المصوّر</button> <button class="btn line" id="fnAgain">إعادة التقويم</button></span><button class="btn" data-go="home">الصفحة الرئيسية</button></div></div>';
+
+    $("fnAgain").onclick=function(){fin={i:0,a:FQ.map(function(){return {};})};renderFinal();};return;
+
+  }
+
+  var a=fin.a[fin.i];$("fnCount").textContent="السؤال "+(fin.i+1)+" من "+n;
+
+  function bar(){$("fnBar").style.width=((fin.i+(a.done?1:0))/n*100)+"%";}bar();
+
+  b.innerHTML=ART[FQ[fin.i].art]()+'<div class="sbody"><div id="fq"></div><div class="nav2"><button class="btn line" id="fnPrev">→ السابق</button><button class="btn" id="fnNext">'+(fin.i===n-1?"عرض النتيجة ←":"التالي ←")+'</button></div></div>';
+
+  var nx=$("fnNext");nx.disabled=!a.done;$("fnPrev").disabled=fin.i===0;$("fnPrev").style.opacity=fin.i===0?.4:1;
+
+  mcq($("fq"),a,FQ[fin.i].q,FQ[fin.i].o,function(){nx.disabled=!a.done;bar();});
+
+  $("fnPrev").onclick=function(){if(fin.i>0){fin.i--;renderFinal();}};
+
+  nx.onclick=function(){fin.i++;renderFinal();window.scrollTo(0,0);};
+
+}
+
+/* ===== الرسم ===== */
+(function(){var cv=$("draw"),x=cv.getContext("2d"),col="#1e63e9",sz=6,er=false,dn=false,hist=[];
+x.lineCap="round";x.lineJoin="round";x.fillStyle="#fff";x.fillRect(0,0,800,480);
+var C=["#1e63e9","#ff6a1a","#19b58a","#ff5a4f","#7b3fd1","#ffd23f","#12306e"],T=$("dtools");
+T.innerHTML=C.map(function(c,i){return '<button class="sw'+(i?'':' on')+'" data-c="'+c+'" style="background:'+c+'" aria-label="لون"></button>';}).join("")+'<button class="btn line small" id="dEr">🧽 ممحاة</button><input type="range" id="dSz" min="2" max="24" value="6" aria-label="حجم الفرشاة">';
+T.onclick=function(e){if(e.target.closest(".sw,#dEr")){stk=null;[].forEach.call(document.querySelectorAll(".stk.on"),function(k){k.classList.remove("on");});}var b=e.target.closest(".sw");if(b){col=b.dataset.c;er=false;[].forEach.call(T.querySelectorAll(".sw"),function(k){k.classList.toggle("on",k===b);});}if(e.target.id==="dEr")er=true;};
+$("dSz").oninput=function(){sz=+this.value;};var stk=null,SK=["🦸","🤝","💙","⭐","🥗","😷","🧼","🛡️","🏅"];$("dstk").innerHTML=SK.map(function(s){return '<button class="stk" data-s="'+s+'" aria-label="ملصق">'+s+'</button>';}).join("")+'<span class="muted">اختر ملصقًا ثم اضغط على اللوحة</span>';$("dstk").onclick=function(e){var b=e.target.closest(".stk");if(!b)return;stk=(stk===b.dataset.s)?null:b.dataset.s;[].forEach.call($("dstk").querySelectorAll(".stk"),function(k){k.classList.toggle("on",k.dataset.s===stk);});};
+function pt(e){var r=cv.getBoundingClientRect();return [(e.clientX-r.left)*800/r.width,(e.clientY-r.top)*480/r.height];}
+cv.onpointerdown=function(e){hist.push(x.getImageData(0,0,800,480));if(hist.length>15)hist.shift();if(stk){var q=pt(e);x.font=(sz*5+36)+"px serif";x.textAlign="center";x.textBaseline="middle";x.fillText(stk,q[0],q[1]);return;}dn=true;cv.setPointerCapture(e.pointerId);var p=pt(e);x.beginPath();x.moveTo(p[0],p[1]);x.strokeStyle=er?"#fff":col;x.lineWidth=er?sz*3:sz;x.lineTo(p[0]+.1,p[1]);x.stroke();};
+cv.onpointermove=function(e){if(!dn)return;var p=pt(e);x.lineTo(p[0],p[1]);x.stroke();};
+cv.onpointerup=cv.onpointercancel=function(){dn=false;};
+$("dUndo").onclick=function(){var h=hist.pop();if(h)x.putImageData(h,0,0);};
+$("dClear").onclick=function(){hist.push(x.getImageData(0,0,800,480));x.fillStyle="#fff";x.fillRect(0,0,800,480);};
+$("dDone").onclick=function(){$("dMsg").classList.add("show");done.final=true;mark();cheer("🎨 رسم رائع يا بطل!");};})();
+
+/* ================= التشجيع، فريق الأبطال، اليوم العالمي للسكري ================= */
+
+var PR=["أحسنت يا بطل! 🌟","رائع! قوتك تزداد 💪","إجابة بطل! 🦸","ممتاز! استمر! ⭐","مذهل! 🎉"];
+var CHEER=["💪 كل سؤال تجيب عنه يجعلك بطلًا أقوى!","🌟 البطل الحقيقي يسأل بلطف ويحترم زملاءه.","🛡️ لكل بطل خطته الخاصة، ونحن نحترمها.","🤝 معًا نصنع مدرسة ألطف!","🦸 أنت قادر يا بطل، وإن أخطأت فجرّب مرة أخرى!","💙 الصديق الداعم بطل خارق."];
+
+function confetti(){
+  if(window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+  var cs=["#ff6a1a","#ffd23f","#19b58a","#1e63e9","#ff5a4f","#7b3fd1"],h=$("conf"),i,s;
+  for(i=0;i<22;i++){s=document.createElement("i");s.style.cssText="left:"+(10+Math.random()*80)+"%;background:"+cs[i%6]+";animation-delay:"+(Math.random()*.25)+"s;--dx:"+(Math.random()*160-80)+"px";h.appendChild(s);setTimeout((function(x){return function(){x.remove();};})(s),1700);}
+}
+function cheer(msg){
+  var t=$("toast");t.textContent=msg||PR[Math.floor(Math.random()*PR.length)];t.classList.add("show");
+  clearTimeout(cheer.t);cheer.t=setTimeout(function(){t.classList.remove("show");},2300);confetti();
+}
+
+var ci0=0;
+function rotCheer(){$("cheerTxt").textContent=CHEER[ci0%CHEER.length];ci0++;}
+rotCheer();setInterval(rotCheer,4500);
+
+/* فريق الأبطال */
+var TEAM=[
+ {k:"ahmed",n:"أحمد",r:"البطل الأزرق",p:"قوته: الالتزام بخطته الصحية والشجاعة في الشرح."},
+ {k:"salem",n:"سالم",r:"بطل اللطف",p:"قوته: السؤال باحترام ودرع يحمي من السخرية."},
+ {k:"yasser",n:"ياسر",r:"بطل الانتباه",p:"قوته: يلاحظ العلامات ويخبر الكبار فورًا."},
+ {k:"teacher",n:"المعلم سامي",r:"القائد الحكيم",p:"قوته: يساعد الجميع وفق الخطط المعتمدة."},
+ {k:"rana",n:"رنا",r:"بطلة التعاون",p:"قوتها: تجمع الأصدقاء في فريق واحد."},
+ {k:"omar",n:"عمر",r:"بطل يتعلم",p:"قوته: يعتذر ويتغير ويصبح صديقًا داعمًا."}
+];
+$("team").innerHTML=TEAM.map(function(t){return '<div class="tm">'+ART.portrait(t.k,t.n)+'<b>'+t.n+'</b><span class="rl">'+t.r+'</span><small>'+t.p+'</small></div>';}).join("");
+
+/* اليوم العالمي للسكري: 14 نوفمبر */
+function wddDays(){
+  var n=new Date(),y=n.getFullYear(),d=new Date(y,10,14),t0=new Date(y,n.getMonth(),n.getDate());
+  if(t0>d){d=new Date(y+1,10,14);}
+  return Math.round((d-t0)/86400000);
+}
+(function(){
+  var d=wddDays(),m;
+  m=d===0?"اليوم هو اليوم العالمي للسكري! 💙":(d===1?"غدًا هو اليوم العالمي للسكري":"متبقٍّ "+d+" يومًا على اليوم العالمي للسكري");
+  [].forEach.call(document.querySelectorAll("[data-wdd]"),function(e){e.textContent=m;});
+  [].forEach.call(document.querySelectorAll("[data-wddlogo]"),function(e){e.innerHTML=ART.wdd(+e.dataset.wddlogo);});
+})();
+
+/* الشخصيات الجانبية على الشاشات العريضة */
+$("mascL").innerHTML='<div class="mb"></div>'+ART.portrait("ahmed","أحمد");
+$("mascR").innerHTML='<div class="mb"></div>'+ART.portrait("salem","سالم");
+var MT={home:["مرحبًا يا بطل! هيا نبدأ 🚀","14 نوفمبر: اليوم العالمي للسكري 💙"],story:["اقرأ القصة بتركيز 📖","أجب بثقة، وأنت بطل! 💪"],vr:["ابحث عن العناصر المضيئة 🔭","كل إجابة صحيحة نجمة ⭐"],final:["ارسم رسالة جميلة 🎨","أنت صديق داعم! 💙"]};
+function mascSet(key){var t=MT[key]||MT.home;$("mascL").querySelector(".mb").textContent=t[0];$("mascR").querySelector(".mb").textContent=t[1];}
+
+/* معايرة النقاط التفاعلية (للمعلم فقط): غيّر القيمة إلى true ثم اضغط على المشهد لقراءة yaw/pitch */
+var HOTSPOT_DEBUG=false;
+stage.addEventListener("click",function(e){
+  if(!HOTSPOT_DEBUG||e.target.closest("button"))return;
+  var r=stage.getBoundingClientRect(),qx=(e.clientX-r.left-cw/2)/ch,qy=-(e.clientY-r.top-ch/2)/ch,f=.5/Math.tan(fov/2),
+      L=Math.hypot(qx,qy,f),dx=qx/L,dy=qy/L,dz=f/L,cp=Math.cos(pitch),sp=Math.sin(pitch),cy=Math.cos(yaw),sy=Math.sin(yaw),
+      y1=dy*cp+dz*sp,z1=-dy*sp+dz*cp,x2=dx*cy+z1*sy,z2=-dx*sy+z1*cy,
+      lon=Math.atan2(x2,z2),lat=Math.asin(Math.max(-1,Math.min(1,y1)));
+  $("hint").style.display="block";$("hint").textContent="yaw: "+lon.toFixed(3)+" · pitch: "+lat.toFixed(3);
+});
+
+
+$("resetAct").onclick=function(){$("vrAgain").onclick();cheer("🔄 بدأنا من جديد يا بطل!");};
+/* ================= التشغيل ================= */
+
+window.addEventListener("hashchange",function(){go(location.hash.slice(1)||"home");});
+
+mark();updateFound();go(location.hash.slice(1)||"home");
+
+})();
+
+</script>
+
+</div>
+
+
+</html>
+
+</body></html>
